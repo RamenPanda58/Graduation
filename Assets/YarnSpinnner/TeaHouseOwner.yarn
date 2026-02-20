@@ -1,0 +1,35 @@
+﻿title: TeaHouseOwner
+---
+Okami: Hmm a customer has entered. What should I do?
+-> talk to the customer.
+    <<jump talk>>
+-> Wait for the customer to approach.
+    <<jump waiting>>
+-> Pay close attention to the customer.
+    <<jump PayAttention>>
+===
+
+title: PayAttention
+---
+It seems like he has an interesting piece on his hand.
+Take a look? 
+-> yes
+    <<inspect_object>>
+-> no
+    <<jump TeaHouseOwner>>
+===
+
+title: talk
+---
+Okami: Hey there, can I help you? 
+Guest: Hmmm (the guest seems to take a step back) 
+Okami: Maybe that wasn't a great idea. 
+===
+
+title: waiting
+---
+Okami: What should I do while waiting? 
+-> dust the counter
+-> make some Tea 
+-> play the koto 
+===
