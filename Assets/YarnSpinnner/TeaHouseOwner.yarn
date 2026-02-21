@@ -13,8 +13,10 @@ title: PayAttention
 ---
 It seems like he has an interesting piece on his hand.
 Take a look? 
--> yes
+-> Zoom
     <<inspect_object>>
+-> Button
+    <<inspect_button>>
 -> no
     <<jump TeaHouseOwner>>
 ===

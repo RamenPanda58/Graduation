@@ -7,6 +7,9 @@ public class InspectionController : MonoBehaviour
     public DialogueRunner dialogueRunner;
     public InspectionCamera2D inspectionCamera;
 
+    public GameObject button1;
+    public GameObject button2;
+
     private Vector3 originalPosition;
     private float originalZoom;
 
@@ -14,6 +17,7 @@ public class InspectionController : MonoBehaviour
     {
         // Register coroutine command
         dialogueRunner.AddCommandHandler("inspect_object", InspectCoroutine);
+        dialogueRunner.AddCommandHandler("inspect_button", EnterInspection);
     }
 
     IEnumerator InspectCoroutine()
@@ -36,8 +40,19 @@ public class InspectionController : MonoBehaviour
         // Yarn automatically continues after this coroutine ends
     }
 
+    public void EnterInspection()
+    {
+        button1.SetActive(true);
+        button2.SetActive(true);
+        
+        dialogueRunner.Stop();
+    }
+
     public void FinishInspection()
     {
         inspectionCamera.enabled = false;
+        button1.SetActive(false);
+        button2.SetActive(false);
+        
     }
-}
+}  
