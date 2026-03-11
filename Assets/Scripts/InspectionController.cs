@@ -18,6 +18,7 @@ public class InspectionController : MonoBehaviour
         // Register coroutine command
         dialogueRunner.AddCommandHandler("inspect_object", InspectCoroutine);
         dialogueRunner.AddCommandHandler("inspect_button", EnterInspection);
+      //  dialogueRunner.AddCommandHandler("inspect_loop", );
     }
 
     IEnumerator InspectCoroutine()
@@ -46,6 +47,10 @@ public class InspectionController : MonoBehaviour
         button2.SetActive(true);
         
         dialogueRunner.Stop();
+    }
+
+    public void LoopCoroutine(){
+
     }
 
     public void FinishInspection()

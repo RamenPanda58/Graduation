@@ -1,0 +1,26 @@
+﻿title: Start
+---
+Okami: Hmm a customer has entered. Oh, they look interesting. 
+-> talk to the customer.
+    <<jump talk>>
+-> Wait for the customer to approach.
+    <<jump waiting>>
+-> Pay close attention to the customer.
+    <<inspect_loop>>
+===
+
+
+title: talk
+---
+Okami: Hey there, can I help you? 
+Guest: Hmmm (the guest seems to take a step back) 
+Okami: Maybe that wasn't a great idea. 
+===
+
+title: waiting
+---
+Okami: What should I do while waiting? 
+-> dust the counter
+-> make some Tea 
+-> play the koto 
+===
