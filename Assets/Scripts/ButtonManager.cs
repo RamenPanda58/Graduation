@@ -48,4 +48,23 @@ public class ButtonManager : MonoBehaviour
             Debug.LogError("Scene with index 2 not found in the build settings.");
         }
     }
+
+       // NEW: Function to load the "ActionScene"
+    public void ActionSceneButton()
+    {
+        SceneManager.LoadScene("ActionScene");
+    }
+
+    // Function to go to the scene called "ReactionScene"
+public void RightAnswer()
+{
+    SceneManager.LoadScene("ReactionScene");
+}
+
+// Function to go to the scene called "ClosingScene"
+public void CloseForTheDay()
+{
+    SceneManager.LoadScene("ClosedScene");
+}
+
 }
