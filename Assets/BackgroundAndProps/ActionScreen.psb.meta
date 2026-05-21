@@ -83,7 +83,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: beaa4eea0d5aadf4a817ac38450770db
+    spriteID: d2d498d20193edd4991ba82c15f01e82
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -104,10 +104,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 2180
+      y: 1092
       width: 1903
       height: 326
-    spriteID: 43989b1ae69961b4f85c5d47ba67381a
+    spriteID: 140fb67c556dcf1438680a8b1074f45f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -115,31 +115,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2180}
+    uvTransform: {x: 4, y: 1092}
     spritePosition: {x: 0, y: 0}
   - name: Hue/Saturation 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1915
-      y: 2180
-      width: 0
-      height: 0
-    spriteID: 42ada57ae06c5b34eaf603bc7eabae84
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1915, y: 2180}
-    spritePosition: {x: 0, y: 1080}
-  - name: Layer 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -151,7 +129,7 @@ ScriptedImporter:
       y: 4
       width: 1920
       height: 1080
-    spriteID: 0edb56f4ae1f43746985980ff210a250
+    spriteID: 2045b82ffd5d09240b9f46ee65c4ffdf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,28 +138,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Background
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 1092
-      width: 1920
-      height: 1080
-    spriteID: ad26e3f68c36514459418af787e42669
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 1092}
     spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
@@ -222,53 +178,13 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: Layer 7
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 87ed549c5ff255b4eb46911255c07021
-    layerID: 7
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
-  - name: Layer 4
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 8cb7c4d656dd7f84294599bf415c6a4f
-    layerID: 6
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
-  - name: Layer 8
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 326e53fdd68213c41b888251aa9a35f7
-    layerID: 5
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
-  - name: Layer 6
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 39d258b5ec03c6e4894023fd3c0e2e89
-    layerID: 4
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
   - name: Layer 3
     spriteName: Layer 3
     isGroup: 0
     parentIndex: -1
-    spriteID: 43989b1ae69961b4f85c5d47ba67381a
+    spriteID: 140fb67c556dcf1438680a8b1074f45f
     layerID: 3
-    mosaicPosition: {x: 4, y: 2180}
+    mosaicPosition: {x: 4, y: 1092}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -276,29 +192,9 @@ ScriptedImporter:
     spriteName: Hue/Saturation 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 42ada57ae06c5b34eaf603bc7eabae84
+    spriteID: 2045b82ffd5d09240b9f46ee65c4ffdf
     layerID: 9
-    mosaicPosition: {x: 1915, y: 2180}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Layer 1
-    spriteName: Layer 1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 0edb56f4ae1f43746985980ff210a250
-    layerID: 2
     mosaicPosition: {x: 4, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Background
-    spriteName: Background
-    isGroup: 0
-    parentIndex: -1
-    spriteID: ad26e3f68c36514459418af787e42669
-    layerID: 1
-    mosaicPosition: {x: 4, y: 1092}
     flatten: 0
     isImported: 1
     isVisible: 1
