@@ -31,8 +31,14 @@ public class TimedEffects : MonoBehaviour
     [Tooltip("Delay before first chime plays")]
     public float firstChimeDelay = 0.5f;
 
-    [Tooltip("Exact time between chimes (e.g. 20 seconds)")]
+    [Tooltip("Exact time between chimes")]
     public float chimeInterval = 20f;
+
+    [Header("Character Root (Fade In Group)")]
+    public GameObject characterRoot;
+
+    [Tooltip("How long fade-in takes after first chime")]
+    public float characterFadeDuration = 2f;
 
     [Header("Lightning Sprite Opacity")]
     [Range(0f, 1f)] public float minOpacity = 0f;
@@ -51,6 +57,11 @@ public class TimedEffects : MonoBehaviour
     [Header("Effect Timing")]
     public float effectInterval = 30f;
 
+    private bool hasFadedInCharacters = false;
+
+    private SpriteRenderer[] characterSprites;
+    private Color[] originalColors;
+
     private void Start()
     {
         if (targetSprite == null)
@@ -61,6 +72,22 @@ public class TimedEffects : MonoBehaviour
 
         SetOpacity(minOpacity);
         SetOverlayOpacity(normalOverlayOpacity);
+
+        // Setup character fade system (start invisible)
+        if (characterRoot != null)
+        {
+            characterSprites = characterRoot.GetComponentsInChildren<SpriteRenderer>();
+            originalColors = new Color[characterSprites.Length];
+
+            for (int i = 0; i < characterSprites.Length; i++)
+            {
+                Color c = characterSprites[i].color;
+                originalColors[i] = c;
+
+                c.a = 0f;
+                characterSprites[i].color = c;
+            }
+        }
 
         StartCoroutine(EffectLoop());
         StartCoroutine(DoorChimeLoop());
@@ -87,7 +114,45 @@ public class TimedEffects : MonoBehaviour
                 doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
             }
 
+            // Trigger character fade ONLY once (first chime)
+            if (!hasFadedInCharacters)
+            {
+                hasFadedInCharacters = true;
+
+                if (characterRoot != null)
+                {
+                    StartCoroutine(FadeInCharacters());
+                }
+            }
+
             yield return new WaitForSeconds(chimeInterval);
+        }
+    }
+
+    IEnumerator FadeInCharacters()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / characterFadeDuration;
+
+            for (int i = 0; i < characterSprites.Length; i++)
+            {
+                Color original = originalColors[i];
+                Color c = original;
+
+                c.a = Mathf.Lerp(0f, original.a, t);
+                characterSprites[i].color = c;
+            }
+
+            yield return null;
+        }
+
+        // Ensure final values
+        for (int i = 0; i < characterSprites.Length; i++)
+        {
+            characterSprites[i].color = originalColors[i];
         }
     }
 
