@@ -25,6 +25,15 @@ public class TimedEffects : MonoBehaviour
     public float minPitch = 0.9f;
     public float maxPitch = 1.1f;
 
+    [Header("Door Chime Audio")]
+    public AudioSource doorChimeAudio;
+
+    [Tooltip("Delay before first chime plays")]
+    public float firstChimeDelay = 0.5f;
+
+    [Tooltip("Exact time between chimes (e.g. 20 seconds)")]
+    public float chimeInterval = 20f;
+
     [Header("Lightning Sprite Opacity")]
     [Range(0f, 1f)] public float minOpacity = 0f;
     [Range(0f, 1f)] public float maxOpacity = 1f;
@@ -51,11 +60,10 @@ public class TimedEffects : MonoBehaviour
             lightningAudio = GetComponent<AudioSource>();
 
         SetOpacity(minOpacity);
-
-        // Set overlay to default darkness
         SetOverlayOpacity(normalOverlayOpacity);
 
         StartCoroutine(EffectLoop());
+        StartCoroutine(DoorChimeLoop());
     }
 
     IEnumerator EffectLoop()
@@ -67,9 +75,24 @@ public class TimedEffects : MonoBehaviour
         }
     }
 
+    IEnumerator DoorChimeLoop()
+    {
+        yield return new WaitForSeconds(firstChimeDelay);
+
+        while (true)
+        {
+            if (doorChimeAudio != null && doorChimeAudio.clip != null)
+            {
+                doorChimeAudio.pitch = Random.Range(0.95f, 1.05f);
+                doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
+            }
+
+            yield return new WaitForSeconds(chimeInterval);
+        }
+    }
+
     IEnumerator SparkRoutine()
     {
-        // 2–4 lightning flashes
         int flashes = Random.Range(2, 5);
 
         for (int i = 0; i < flashes; i++)
@@ -91,7 +114,7 @@ public class TimedEffects : MonoBehaviour
     {
         float t = 0f;
 
-        // Fade IN (lightning appears, darkness fades)
+        // Fade IN
         while (t < 1f)
         {
             t += Time.deltaTime * fadeSpeed;
@@ -109,7 +132,7 @@ public class TimedEffects : MonoBehaviour
             yield return null;
         }
 
-        // Fade OUT (lightning disappears, darkness returns)
+        // Fade OUT
         t = 0f;
 
         while (t < 1f)
@@ -136,8 +159,7 @@ public class TimedEffects : MonoBehaviour
 
         if (randomizePitch)
         {
-            lightningAudio.pitch =
-                Random.Range(minPitch, maxPitch);
+            lightningAudio.pitch = Random.Range(minPitch, maxPitch);
         }
 
         lightningAudio.PlayOneShot(lightningAudio.clip);
