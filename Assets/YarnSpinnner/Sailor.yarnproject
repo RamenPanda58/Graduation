@@ -1,0 +1,16 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "SailorCompleted.yarn",
+    "SailorNearly.yarn",
+    "SailorFailed.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "en",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}

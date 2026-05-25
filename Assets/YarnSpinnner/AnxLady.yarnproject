@@ -1,0 +1,16 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "AnxLadyCompleted.yarn",
+    "AnxLadyNearly.yarn",
+    "AnxLadyFailed.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "en",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}

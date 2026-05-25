@@ -1,0 +1,16 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "FarmerCompleted.yarn",
+    "FarmerNearly.yarn",
+    "FarmerFailed.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "en",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}
