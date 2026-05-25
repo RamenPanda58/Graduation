@@ -1,0 +1,41 @@
+﻿title: TwinCompleted
+---
+Girl: Oh, thank you for this tea I really appreciate it. As a token of understanding me you can ask me anything. 
+-> What happened to you?
+    <<jump backstory>>
+-> What is the meaning of the flower in your hand? 
+    <<jump flower>>
+-> Does the tea help?
+    <<jump tea>>
+===
+
+title: intermezzo
+---
+-> What happened to you?
+    <<jump backstory>>
+-> What is the meaning of the flower in your hand? 
+    <<jump flower>>
+-> Does the tea help?
+    <<jump tea>>
+===
+
+title: backstory
+---
+To be truthful... I have lost my sister. I am trying to find her and I just hope that she might appear any moment. 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: flower
+---
+I have ... used to - have a sister. We were twins and this was her flower. We used to be a matching pair, just like the twin flowes. 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: tea
+---
+Oh yes, thank you! I can already feel myself calming down. 
+-> Ask something else
+    <<jump intermezzo>>
+===

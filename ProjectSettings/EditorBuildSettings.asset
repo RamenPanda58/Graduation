@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/ProjectScenens/TeahouseView.unity
     guid: c04a42b4188bce245a90b9c9f77a587c
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/InspectScene.unity
+    path: Assets/Scenes/ProjectScenens/InspectionScenes/InspectScene.unity
     guid: e6e73611ec17a28479c331f7f25eda71
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/ActionScene.unity
+    path: Assets/Scenes/ProjectScenens/ActionScenes/ActionScene.unity
     guid: 16cd353e1d3d7034481098e310376377
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/ReactionScene.unity
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/ReactionScene.unity
     guid: 374189c65fe97444b9906705b652daae
   - enabled: 1
     path: Assets/Scenes/ProjectScenens/ClosedScene.unity
