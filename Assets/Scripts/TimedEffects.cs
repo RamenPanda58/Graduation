@@ -9,35 +9,25 @@ public class TimedEffects : MonoBehaviour
     [Header("Dark Overlay / Rectangle")]
     public SpriteRenderer darkOverlay;
 
-    [Tooltip("Normal darkness opacity")]
     [Range(0f, 1f)]
     public float normalOverlayOpacity = 0.7f;
 
-    [Tooltip("How transparent the darkness becomes during lightning")]
     [Range(0f, 1f)]
     public float lightningOverlayOpacity = 0.2f;
 
     [Header("Lightning Audio")]
     public AudioSource lightningAudio;
-
-    [Tooltip("Randomize pitch slightly")]
     public bool randomizePitch = true;
     public float minPitch = 0.9f;
     public float maxPitch = 1.1f;
 
     [Header("Door Chime Audio")]
     public AudioSource doorChimeAudio;
-
-    [Tooltip("Delay before first chime plays")]
     public float firstChimeDelay = 0.5f;
-
-    [Tooltip("Exact time between chimes")]
     public float chimeInterval = 20f;
 
     [Header("Character Root (Fade In Group)")]
     public GameObject characterRoot;
-
-    [Tooltip("How long fade-in takes after first chime")]
     public float characterFadeDuration = 2f;
 
     [Header("Lightning Sprite Opacity")]
@@ -45,25 +35,33 @@ public class TimedEffects : MonoBehaviour
     [Range(0f, 1f)] public float maxOpacity = 1f;
 
     [Header("Flash Speed")]
-    [Tooltip("Higher = faster lightning")]
     public float fadeSpeed = 100f;
-
-    [Tooltip("Minimum pause between flashes")]
     public float minPause = 0.03f;
-
-    [Tooltip("Maximum pause between flashes")]
     public float maxPause = 0.12f;
 
     [Header("Effect Timing")]
     public float effectInterval = 30f;
 
-    // Static = persists between scene reloads during this game session
+    // ---------------- JUMP SCARE SYSTEM ----------------
+    [Header("Sailor Jump Scare")]
+    public Animator sailorAnimator;
+
+    [Tooltip("Drag the jump scare animation clip here")]
+    public AnimationClip jumpScareClip;
+
+    [Tooltip("Drag the idle animation clip here")]
+    public AnimationClip idleClip;
+
+    public float jumpScareCooldown = 2f;
+    private float lastJumpScareTime = 0f;
+    // ---------------------------------------------------
+
     private static bool hasFadedInCharacters = false;
 
     private SpriteRenderer[] characterSprites;
     private Color[] originalColors;
 
-    private void Start()
+    void Start()
     {
         if (targetSprite == null)
             targetSprite = GetComponent<SpriteRenderer>();
@@ -74,7 +72,6 @@ public class TimedEffects : MonoBehaviour
         SetOpacity(minOpacity);
         SetOverlayOpacity(normalOverlayOpacity);
 
-        // Setup character fade system
         if (characterRoot != null)
         {
             characterSprites = characterRoot.GetComponentsInChildren<SpriteRenderer>();
@@ -82,12 +79,11 @@ public class TimedEffects : MonoBehaviour
 
             for (int i = 0; i < characterSprites.Length; i++)
             {
-                Color c = characterSprites[i].color;
-                originalColors[i] = c;
+                originalColors[i] = characterSprites[i].color;
 
-                // Only make invisible if this is the FIRST time
                 if (!hasFadedInCharacters)
                 {
+                    Color c = characterSprites[i].color;
                     c.a = 0f;
                     characterSprites[i].color = c;
                 }
@@ -119,15 +115,12 @@ public class TimedEffects : MonoBehaviour
                 doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
             }
 
-            // Trigger character fade ONLY once per game session
             if (!hasFadedInCharacters)
             {
                 hasFadedInCharacters = true;
 
                 if (characterRoot != null)
-                {
                     StartCoroutine(FadeInCharacters());
-                }
             }
 
             yield return new WaitForSeconds(chimeInterval);
@@ -146,7 +139,6 @@ public class TimedEffects : MonoBehaviour
             {
                 Color original = originalColors[i];
                 Color c = original;
-
                 c.a = Mathf.Lerp(0f, original.a, t);
                 characterSprites[i].color = c;
             }
@@ -154,7 +146,6 @@ public class TimedEffects : MonoBehaviour
             yield return null;
         }
 
-        // Ensure final values
         for (int i = 0; i < characterSprites.Length; i++)
         {
             characterSprites[i].color = originalColors[i];
@@ -169,11 +160,11 @@ public class TimedEffects : MonoBehaviour
         {
             PlayLightningSound();
 
+            TriggerJumpScare(); // 👈 jump scare happens during lightning
+
             yield return StartCoroutine(FadeFlash());
 
-            yield return new WaitForSeconds(
-                Random.Range(minPause, maxPause)
-            );
+            yield return new WaitForSeconds(Random.Range(minPause, maxPause));
         }
 
         SetOpacity(minOpacity);
@@ -184,44 +175,56 @@ public class TimedEffects : MonoBehaviour
     {
         float t = 0f;
 
-        // Fade IN
+        // FADE IN
         while (t < 1f)
         {
             t += Time.deltaTime * fadeSpeed;
 
-            float flashAlpha = Mathf.Lerp(minOpacity, maxOpacity, t);
-            SetOpacity(flashAlpha);
-
-            float overlayAlpha = Mathf.Lerp(
-                normalOverlayOpacity,
-                lightningOverlayOpacity,
-                t
-            );
-            SetOverlayOpacity(overlayAlpha);
+            SetOpacity(Mathf.Lerp(minOpacity, maxOpacity, t));
+            SetOverlayOpacity(Mathf.Lerp(normalOverlayOpacity, lightningOverlayOpacity, t));
 
             yield return null;
         }
 
-        // Fade OUT
+        // FADE OUT
         t = 0f;
 
         while (t < 1f)
         {
             t += Time.deltaTime * fadeSpeed;
 
-            float flashAlpha = Mathf.Lerp(maxOpacity, minOpacity, t);
-            SetOpacity(flashAlpha);
-
-            float overlayAlpha = Mathf.Lerp(
-                lightningOverlayOpacity,
-                normalOverlayOpacity,
-                t
-            );
-            SetOverlayOpacity(overlayAlpha);
+            SetOpacity(Mathf.Lerp(maxOpacity, minOpacity, t));
+            SetOverlayOpacity(Mathf.Lerp(lightningOverlayOpacity, normalOverlayOpacity, t));
 
             yield return null;
         }
     }
+
+    // ---------------- JUMP SCARE ----------------
+
+    void TriggerJumpScare()
+    {
+        if (sailorAnimator == null) return;
+        if (jumpScareClip == null) return;
+        if (idleClip == null) return;
+
+        if (Time.time < lastJumpScareTime + jumpScareCooldown) return;
+
+        lastJumpScareTime = Time.time;
+
+        StartCoroutine(PlayJumpScareThenIdle());
+    }
+
+    IEnumerator PlayJumpScareThenIdle()
+    {
+        sailorAnimator.Play(jumpScareClip.name);
+
+        yield return new WaitForSeconds(jumpScareClip.length);
+
+        sailorAnimator.Play(idleClip.name);
+    }
+
+    // --------------------------------------------
 
     void PlayLightningSound()
     {
@@ -229,9 +232,7 @@ public class TimedEffects : MonoBehaviour
             return;
 
         if (randomizePitch)
-        {
             lightningAudio.pitch = Random.Range(minPitch, maxPitch);
-        }
 
         lightningAudio.PlayOneShot(lightningAudio.clip);
     }

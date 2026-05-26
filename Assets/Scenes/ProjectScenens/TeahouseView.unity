@@ -2516,6 +2516,10 @@ MonoBehaviour:
   minPause: 0.03
   maxPause: 0.12
   effectInterval: 10
+  sailorAnimator: {fileID: 1888650042}
+  jumpScareClip: {fileID: 7400000, guid: 164ce8923ddcb174bb9beccbe708a5e3, type: 2}
+  idleClip: {fileID: 7400000, guid: 5c58302f8f723034da5e9a39265e55b1, type: 2}
+  jumpScareCooldown: 2
 --- !u!4 &1587457481
 Transform:
   m_ObjectHideFlags: 0
