@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2404f9c6db4562d4fa8c9cd6a11119bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonObject: {fileID: 0}
 --- !u!4 &453671719
 Transform:
   m_ObjectHideFlags: 0
@@ -606,7 +607,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 453671718}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: ActionSceneButton
+        m_MethodName: TwinAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1831,13 +1832,13 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 888263981}
+  - {fileID: 453671719}
   - {fileID: 1282283131}
   - {fileID: 796231007}
   - {fileID: 1056182501}
   - {fileID: 1140394558}
   - {fileID: 669690415}
   - {fileID: 844905090}
-  - {fileID: 453671719}
   - {fileID: 13713782}
   - {fileID: 829330443}
   - {fileID: 2022824852}

@@ -12,14 +12,65 @@ EditorBuildSettings:
     path: Assets/Scenes/ProjectScenens/TeahouseView.unity
     guid: c04a42b4188bce245a90b9c9f77a587c
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/InspectionScenes/InspectScene.unity
-    guid: e6e73611ec17a28479c331f7f25eda71
+    path: Assets/Scenes/ProjectScenens/InspectionScenes/AnxLady_inspect.unity
+    guid: 834410cb79fabda479f84fb42f6b42ee
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/ActionScenes/ActionScene.unity
-    guid: 16cd353e1d3d7034481098e310376377
+    path: Assets/Scenes/ProjectScenens/InspectionScenes/Farmer_inspect.unity
+    guid: 99ab8c0e3c0fd8343863cf21a1f4bccf
   - enabled: 1
-    path: Assets/Scenes/ProjectScenens/ReactionScenes/ReactionScene.unity
-    guid: 374189c65fe97444b9906705b652daae
+    path: Assets/Scenes/ProjectScenens/InspectionScenes/Sailor_inspect.unity
+    guid: 27b2a77a1ac3b8842b6d10424100e0c6
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/InspectionScenes/Twin_inspect.unity
+    guid: df7194a0e3f512d409701b7881bce372
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ActionScenes/AnxLady_action.unity
+    guid: 6317194915eb28b44bbd27e5af763b0b
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ActionScenes/Farmer_action.unity
+    guid: 5990c05ca9b3abb4e82d78fc028559e2
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ActionScenes/Sailor_action.unity
+    guid: c59d761155dcfa64392af39e009d8056
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ActionScenes/Twin_action.unity
+    guid: 1ce9e98dbeb0d684aa5fe0b6254edd27
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/AnxLady_completed_reaction.unity
+    guid: eb516992f48e05e40915fe2c87c73a36
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/AnxLady_failed_reaction.unity
+    guid: 2cc49117410c4344d963222c0f9fbc9e
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/AnxLady_nearly_reaction.unity
+    guid: 3b317f4039ca2a847988aab3b747b9b5
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Farmer_completed_reaction.unity
+    guid: 350759e148765234da2998c7ab6e2a10
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Farmer_failed_reaction.unity
+    guid: f11e8b3b09c59e44e84463786c49d6a7
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Farmer_nearly_reaction.unity
+    guid: 139bac1c0c24e2048a80ec929d0c3a62
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Sailor_completed_reaction.unity
+    guid: 00b14170782503f44bd35f1419af7454
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Sailor_failed_reaction.unity
+    guid: 5b763a69fe405f84984c37ab9cf71bef
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Sailor_nearly_reaction.unity
+    guid: 6fddfada2958a04459c684f71adbdef8
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Twin_completed_reaction.unity
+    guid: 0f288de59f72f074fad7cbc21ec1dfe9
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Twin_failed_reaction.unity
+    guid: fd44acb624e43db438ce6b4af0d12d36
+  - enabled: 1
+    path: Assets/Scenes/ProjectScenens/ReactionScenes/Twin_nearly_reaction.unity
+    guid: 148c4bcc0d4c38c4d949e7664afd0fab
   - enabled: 1
     path: Assets/Scenes/ProjectScenens/ClosedScene.unity
     guid: 3c987ba51fd149441a9f7a0f1c7cdd0d

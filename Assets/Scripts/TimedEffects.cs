@@ -57,7 +57,8 @@ public class TimedEffects : MonoBehaviour
     [Header("Effect Timing")]
     public float effectInterval = 30f;
 
-    private bool hasFadedInCharacters = false;
+    // Static = persists between scene reloads during this game session
+    private static bool hasFadedInCharacters = false;
 
     private SpriteRenderer[] characterSprites;
     private Color[] originalColors;
@@ -73,7 +74,7 @@ public class TimedEffects : MonoBehaviour
         SetOpacity(minOpacity);
         SetOverlayOpacity(normalOverlayOpacity);
 
-        // Setup character fade system (start invisible)
+        // Setup character fade system
         if (characterRoot != null)
         {
             characterSprites = characterRoot.GetComponentsInChildren<SpriteRenderer>();
@@ -84,8 +85,12 @@ public class TimedEffects : MonoBehaviour
                 Color c = characterSprites[i].color;
                 originalColors[i] = c;
 
-                c.a = 0f;
-                characterSprites[i].color = c;
+                // Only make invisible if this is the FIRST time
+                if (!hasFadedInCharacters)
+                {
+                    c.a = 0f;
+                    characterSprites[i].color = c;
+                }
             }
         }
 
@@ -114,7 +119,7 @@ public class TimedEffects : MonoBehaviour
                 doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
             }
 
-            // Trigger character fade ONLY once (first chime)
+            // Trigger character fade ONLY once per game session
             if (!hasFadedInCharacters)
             {
                 hasFadedInCharacters = true;
@@ -220,7 +225,8 @@ public class TimedEffects : MonoBehaviour
 
     void PlayLightningSound()
     {
-        if (lightningAudio == null) return;
+        if (lightningAudio == null || lightningAudio.clip == null)
+            return;
 
         if (randomizePitch)
         {

@@ -7,6 +7,8 @@ Girl: Oh, thank you for this tea I really appreciate it. As a token of understan
     <<jump flower>>
 -> Does the tea help?
     <<jump tea>>
+-> Teahouse view 
+    <<jump home>>
 ===
 
 title: intermezzo
@@ -38,4 +40,9 @@ title: tea
 Oh yes, thank you! I can already feel myself calming down. 
 -> Ask something else
     <<jump intermezzo>>
+===
+
+title: home
+---
+Thank you again!
 ===
