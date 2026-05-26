@@ -2507,7 +2507,11 @@ MonoBehaviour:
   maxPitch: 1.1
   doorChimeAudio: {fileID: 771278420}
   firstChimeDelay: 0.5
-  chimeInterval: 20
+  chimeInterval: 30
+  twinReactionDelay: 1
+  twinAnimator: {fileID: 2046297048}
+  twinReactionClip: {fileID: 7400000, guid: 4070eaf7ea9da9e4284e2aafdf6c11fc, type: 2}
+  twinIdleClip: {fileID: 7400000, guid: 8fc4ae53007fb6542acdfb1f95e6f8dd, type: 2}
   characterRoot: {fileID: 1424750965}
   characterFadeDuration: 1.5
   minOpacity: 0
@@ -2515,7 +2519,7 @@ MonoBehaviour:
   fadeSpeed: 8
   minPause: 0.03
   maxPause: 0.12
-  effectInterval: 10
+  effectInterval: 20
   sailorAnimator: {fileID: 1888650042}
   jumpScareClip: {fileID: 7400000, guid: 164ce8923ddcb174bb9beccbe708a5e3, type: 2}
   idleClip: {fileID: 7400000, guid: 5c58302f8f723034da5e9a39265e55b1, type: 2}

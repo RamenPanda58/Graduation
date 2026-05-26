@@ -26,6 +26,14 @@ public class TimedEffects : MonoBehaviour
     public float firstChimeDelay = 0.5f;
     public float chimeInterval = 20f;
 
+    [Header("Twin Reaction Timing")]
+public float twinReactionDelay = 2f;
+
+    [Header("Twin Reaction (Chime Response)")]
+    public Animator twinAnimator;
+    public AnimationClip twinReactionClip;
+    public AnimationClip twinIdleClip;
+
     [Header("Character Root (Fade In Group)")]
     public GameObject characterRoot;
     public float characterFadeDuration = 2f;
@@ -45,11 +53,7 @@ public class TimedEffects : MonoBehaviour
     // ---------------- JUMP SCARE SYSTEM ----------------
     [Header("Sailor Jump Scare")]
     public Animator sailorAnimator;
-
-    [Tooltip("Drag the jump scare animation clip here")]
     public AnimationClip jumpScareClip;
-
-    [Tooltip("Drag the idle animation clip here")]
     public AnimationClip idleClip;
 
     public float jumpScareCooldown = 2f;
@@ -115,6 +119,9 @@ public class TimedEffects : MonoBehaviour
                 doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
             }
 
+            // 👇 DELAYED TWIN REACTION (2 seconds after chime starts)
+            StartCoroutine(DelayedTwinReaction());
+
             if (!hasFadedInCharacters)
             {
                 hasFadedInCharacters = true;
@@ -125,6 +132,12 @@ public class TimedEffects : MonoBehaviour
 
             yield return new WaitForSeconds(chimeInterval);
         }
+    }
+
+    IEnumerator DelayedTwinReaction()
+    {
+       yield return new WaitForSeconds(twinReactionDelay);
+        TriggerTwinReaction();
     }
 
     IEnumerator FadeInCharacters()
@@ -159,11 +172,9 @@ public class TimedEffects : MonoBehaviour
         for (int i = 0; i < flashes; i++)
         {
             PlayLightningSound();
-
-            TriggerJumpScare(); // 👈 jump scare happens during lightning
+            TriggerJumpScare();
 
             yield return StartCoroutine(FadeFlash());
-
             yield return new WaitForSeconds(Random.Range(minPause, maxPause));
         }
 
@@ -175,7 +186,6 @@ public class TimedEffects : MonoBehaviour
     {
         float t = 0f;
 
-        // FADE IN
         while (t < 1f)
         {
             t += Time.deltaTime * fadeSpeed;
@@ -186,7 +196,6 @@ public class TimedEffects : MonoBehaviour
             yield return null;
         }
 
-        // FADE OUT
         t = 0f;
 
         while (t < 1f)
@@ -211,17 +220,32 @@ public class TimedEffects : MonoBehaviour
         if (Time.time < lastJumpScareTime + jumpScareCooldown) return;
 
         lastJumpScareTime = Time.time;
-
         StartCoroutine(PlayJumpScareThenIdle());
     }
 
     IEnumerator PlayJumpScareThenIdle()
     {
         sailorAnimator.Play(jumpScareClip.name);
-
         yield return new WaitForSeconds(jumpScareClip.length);
-
         sailorAnimator.Play(idleClip.name);
+    }
+
+    // ---------------- TWIN REACTION ----------------
+
+    void TriggerTwinReaction()
+    {
+        if (twinAnimator == null) return;
+        if (twinReactionClip == null) return;
+        if (twinIdleClip == null) return;
+
+        StartCoroutine(PlayTwinReactionThenIdle());
+    }
+
+    IEnumerator PlayTwinReactionThenIdle()
+    {
+        twinAnimator.Play(twinReactionClip.name);
+        yield return new WaitForSeconds(twinReactionClip.length);
+        twinAnimator.Play(twinIdleClip.name);
     }
 
     // --------------------------------------------
