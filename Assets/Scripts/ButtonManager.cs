@@ -5,25 +5,30 @@ using System.Collections;
 
 public class ButtonManager : MonoBehaviour
 {
+    [Header("General UI")]
+    [SerializeField] private GameObject buttonObject;
+
     [Header("Tutorial UI")]
     [SerializeField] private GameObject tutorialUI;
     [SerializeField] private GameObject tutorialButtonObject;
     [SerializeField] private GameObject exitButton;
     [SerializeField] private CanvasGroup tutorialButtonCanvasGroup;
 
-    // Prevent tutorial button appearing every scene load
     private static bool tutorialButtonShown = false;
 
     private void Start()
     {
-        // Hide tutorial UI and exit button at start
-        tutorialUI.SetActive(false);
-        exitButton.SetActive(false);
+        // Safety defaults
+        if (tutorialUI != null)
+            tutorialUI.SetActive(false);
 
-        // Hide tutorial button initially
-        tutorialButtonObject.SetActive(false);
+        if (exitButton != null)
+            exitButton.SetActive(false);
 
-        // Only show tutorial button once during gameplay
+        if (tutorialButtonObject != null)
+            tutorialButtonObject.SetActive(false);
+
+        // Show tutorial button only once per gameplay session
         if (!tutorialButtonShown)
         {
             StartCoroutine(ShowTutorialButtonAfterDelay());
@@ -32,13 +37,10 @@ public class ButtonManager : MonoBehaviour
 
     private IEnumerator ShowTutorialButtonAfterDelay()
     {
-        // Wait 2 seconds
         yield return new WaitForSeconds(2f);
 
-        // Show tutorial button
         tutorialButtonObject.SetActive(true);
 
-        // Fade in setup
         tutorialButtonCanvasGroup.alpha = 0f;
 
         float duration = 1f;
@@ -56,48 +58,50 @@ public class ButtonManager : MonoBehaviour
 
         tutorialButtonCanvasGroup.alpha = 1f;
 
-        // Mark as shown so it won't appear again
         tutorialButtonShown = true;
     }
 
-    // ==========================
-    // Tutorial UI Functions
-    // ==========================
+    // =========================
+    // Tutorial System
+    // =========================
 
-    // Open tutorial UI
     public void OpenTutorial()
     {
         tutorialUI.SetActive(true);
         exitButton.SetActive(true);
     }
 
-    // Close tutorial UI
     public void CloseTutorial()
     {
         tutorialUI.SetActive(false);
         exitButton.SetActive(false);
     }
 
-    // ==========================
-    // Scene Navigation
-    // ==========================
+    // =========================
+    // Global UI Helper (IMPORTANT)
+    // =========================
+
+    public void ShowButtonHome()
+    {
+        buttonObject.SetActive(true);
+    }
+
+    // =========================
+    // Scene Management
+    // =========================
 
     public void LoadNextScene()
     {
-        int currentSceneIndex =
-            SceneManager.GetActiveScene().buildIndex;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
 
-        int nextSceneIndex =
-            currentSceneIndex + 1;
-
-        if (nextSceneIndex <
-            SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
         else
         {
-            Debug.Log("No next scene in the build settings.");
+            Debug.Log("No next scene in build settings.");
         }
     }
 
@@ -110,27 +114,20 @@ public class ButtonManager : MonoBehaviour
     public void RestartGame()
     {
         Debug.Log("Restart button clicked!");
-
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex
-        );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Scene index 2
     public void InspectTwin()
     {
         int targetSceneIndex = 2;
 
-        if (targetSceneIndex <
-            SceneManager.sceneCountInBuildSettings)
+        if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(targetSceneIndex);
         }
         else
         {
-            Debug.LogError(
-                "Scene with index 2 not found in build settings."
-            );
+            Debug.LogError("Scene index 2 not found in build settings.");
         }
     }
 
@@ -154,10 +151,6 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("TeahouseView");
     }
 
-    // ==========================
-    // Inspect Scenes
-    // ==========================
-
     public void TwinInspect()
     {
         SceneManager.LoadScene("Twin_inspect");
@@ -177,10 +170,6 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("Farmer_inspect");
     }
-
-    // ==========================
-    // Action Scenes
-    // ==========================
 
     public void AnxLadyAction()
     {

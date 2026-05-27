@@ -3777,6 +3777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2404f9c6db4562d4fa8c9cd6a11119bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonObject: {fileID: 1342208459}
   tutorialUI: {fileID: 0}
   tutorialButtonObject: {fileID: 0}
   exitButton: {fileID: 0}
