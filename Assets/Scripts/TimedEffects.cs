@@ -27,12 +27,21 @@ public class TimedEffects : MonoBehaviour
     public float chimeInterval = 20f;
 
     [Header("Twin Reaction Timing")]
-public float twinReactionDelay = 2f;
+    public float twinReactionDelay = 2f;
 
     [Header("Twin Reaction (Chime Response)")]
     public Animator twinAnimator;
     public AnimationClip twinReactionClip;
     public AnimationClip twinIdleClip;
+
+    [Header("Shamisen Event")]
+    public AudioSource shamisenAudio;
+    public float shamisenInterval = 45f;
+
+    [Header("Farmer Reaction (Shamisen)")]
+    public Animator farmerAnimator;
+    public AnimationClip farmerReactionClip;
+    public AnimationClip farmerIdleClip;
 
     [Header("Character Root (Fade In Group)")]
     public GameObject characterRoot;
@@ -65,6 +74,9 @@ public float twinReactionDelay = 2f;
     private SpriteRenderer[] characterSprites;
     private Color[] originalColors;
 
+    // FIX: farmer lock
+    private bool isFarmerReacting = false;
+
     void Start()
     {
         if (targetSprite == null)
@@ -96,6 +108,7 @@ public float twinReactionDelay = 2f;
 
         StartCoroutine(EffectLoop());
         StartCoroutine(DoorChimeLoop());
+        StartCoroutine(ShamisenLoop());
     }
 
     IEnumerator EffectLoop()
@@ -119,7 +132,6 @@ public float twinReactionDelay = 2f;
                 doorChimeAudio.PlayOneShot(doorChimeAudio.clip);
             }
 
-            // 👇 DELAYED TWIN REACTION (2 seconds after chime starts)
             StartCoroutine(DelayedTwinReaction());
 
             if (!hasFadedInCharacters)
@@ -136,8 +148,44 @@ public float twinReactionDelay = 2f;
 
     IEnumerator DelayedTwinReaction()
     {
-       yield return new WaitForSeconds(twinReactionDelay);
+        yield return new WaitForSeconds(twinReactionDelay);
         TriggerTwinReaction();
+    }
+
+    // ---------------- SHAMISEN SYSTEM ----------------
+
+    IEnumerator ShamisenLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(shamisenInterval);
+
+            if (shamisenAudio != null && shamisenAudio.clip != null)
+            {
+                shamisenAudio.PlayOneShot(shamisenAudio.clip);
+            }
+
+            StartCoroutine(PlayFarmerReaction());
+        }
+    }
+
+    IEnumerator PlayFarmerReaction()
+    {
+        if (isFarmerReacting) yield break;
+
+        if (farmerAnimator == null) yield break;
+        if (farmerReactionClip == null) yield break;
+        if (farmerIdleClip == null) yield break;
+
+        isFarmerReacting = true;
+
+        farmerAnimator.Play(farmerReactionClip.name, 0, 0f);
+
+        yield return new WaitForSeconds(farmerReactionClip.length);
+
+        farmerAnimator.Play(farmerIdleClip.name, 0, 0f);
+
+        isFarmerReacting = false;
     }
 
     IEnumerator FadeInCharacters()
@@ -225,9 +273,9 @@ public float twinReactionDelay = 2f;
 
     IEnumerator PlayJumpScareThenIdle()
     {
-        sailorAnimator.Play(jumpScareClip.name);
+        sailorAnimator.Play(jumpScareClip.name, 0, 0f);
         yield return new WaitForSeconds(jumpScareClip.length);
-        sailorAnimator.Play(idleClip.name);
+        sailorAnimator.Play(idleClip.name, 0, 0f);
     }
 
     // ---------------- TWIN REACTION ----------------
@@ -243,12 +291,10 @@ public float twinReactionDelay = 2f;
 
     IEnumerator PlayTwinReactionThenIdle()
     {
-        twinAnimator.Play(twinReactionClip.name);
+        twinAnimator.Play(twinReactionClip.name, 0, 0f);
         yield return new WaitForSeconds(twinReactionClip.length);
-        twinAnimator.Play(twinIdleClip.name);
+        twinAnimator.Play(twinIdleClip.name, 0, 0f);
     }
-
-    // --------------------------------------------
 
     void PlayLightningSound()
     {

@@ -506,7 +506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2404f9c6db4562d4fa8c9cd6a11119bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonObject: {fileID: 0}
+  tutorialUI: {fileID: 0}
+  tutorialButtonObject: {fileID: 0}
+  exitButton: {fileID: 0}
+  tutorialButtonCanvasGroup: {fileID: 0}
 --- !u!4 &453671719
 Transform:
   m_ObjectHideFlags: 0
@@ -864,7 +867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &796231007
 Transform:
   m_ObjectHideFlags: 0
