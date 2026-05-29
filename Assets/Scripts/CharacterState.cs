@@ -27,21 +27,23 @@ public class CharacterState : MonoBehaviour
     }
 
     void ApplyState()
-    {
-        string result =
-            CharacterChecker.Instance.GetCharacterResult(characterName);
+{
+    string result = CharacterChecker.Instance.GetCharacterResult(characterName);
 
-        if (result == "completed" || result == "nearly")
-        {
-            StartCoroutine(FadeOut(2f));
-           characterButton.gameObject.SetActive(false);
-        }
-        else if (result == "failed")
-        {
-            ApplyGray();
-            characterButton.gameObject.SetActive(false);
-        }
+    if (result == "completed" || result == "nearly")
+    {
+        StartCoroutine(FadeOut(2f));
+        characterButton.gameObject.SetActive(false);
     }
+    else if (result == "failed")
+    {
+        ApplyGray();
+        characterButton.gameObject.SetActive(false);
+    }
+
+    // mark as helped visually/logic-safe (optional redundancy)
+    CharacterChecker.Instance.SetCharacterResult(characterName, result);
+}
 
     void ApplyGray()
     {

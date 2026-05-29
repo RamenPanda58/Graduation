@@ -15,17 +15,23 @@ public class ActionButtons : MonoBehaviour
 
     public void Submit()
     {
+        if (CharacterChecker.Instance == null)
+        {
+            Debug.LogError("CharacterChecker missing in scene!");
+            return;
+        }
+
+        string resultString = result.ToString().ToLower();
+
         // store result
-        CharacterChecker.Instance.SetCharacterResult(
-            characterID,
-            result.ToString().ToLower()
-        );
+        CharacterChecker.Instance.SetCharacterResult(characterID, resultString);
 
-        // build next scene name
-        string sceneName =
-            characterID + "_" + result.ToString().ToLower() + "_reaction";
+        // mark as helped immediately
+        CharacterChecker.Instance.MarkHelped(characterID);
 
-        // DEBUG LOG (this is what you wanted)
+        // reaction scene
+        string sceneName = characterID + "_" + resultString + "_reaction";
+
         Debug.Log("Loading scene: " + sceneName);
 
         SceneManager.LoadScene(sceneName);

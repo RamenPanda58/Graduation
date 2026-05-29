@@ -8,6 +8,9 @@ public class ButtonManager : MonoBehaviour
     [Header("General UI")]
     [SerializeField] private GameObject buttonObject;
 
+    [Header("End Day UI")]
+    [SerializeField] private GameObject endDayButtonObject;
+
     [Header("Tutorial UI")]
     [SerializeField] private GameObject tutorialUI;
     [SerializeField] private GameObject tutorialButtonObject;
@@ -15,6 +18,16 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private CanvasGroup tutorialButtonCanvasGroup;
 
     private static bool tutorialButtonShown = false;
+
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     private void Start()
     {
@@ -28,10 +41,36 @@ public class ButtonManager : MonoBehaviour
         if (tutorialButtonObject != null)
             tutorialButtonObject.SetActive(false);
 
-        // Show tutorial button only once per gameplay session
+        if (endDayButtonObject != null)
+            endDayButtonObject.SetActive(false);
+
         if (!tutorialButtonShown)
         {
             StartCoroutine(ShowTutorialButtonAfterDelay());
+        }
+
+        CheckEndDay();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CheckEndDay();
+    }
+
+    private void CheckEndDay()
+    {
+        if (endDayButtonObject == null) return;
+        if (CharacterChecker.Instance == null) return;
+
+        if (CharacterChecker.Instance.AllCharactersHelped())
+        {
+            Debug.Log("ALL CHARACTERS HELPED → SHOW END DAY BUTTON");
+            endDayButtonObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("NOT READY FOR END DAY");
+            endDayButtonObject.SetActive(false);
         }
     }
 
@@ -40,7 +79,6 @@ public class ButtonManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         tutorialButtonObject.SetActive(true);
-
         tutorialButtonCanvasGroup.alpha = 0f;
 
         float duration = 1f;
@@ -57,7 +95,6 @@ public class ButtonManager : MonoBehaviour
         }
 
         tutorialButtonCanvasGroup.alpha = 1f;
-
         tutorialButtonShown = true;
     }
 
@@ -78,12 +115,24 @@ public class ButtonManager : MonoBehaviour
     }
 
     // =========================
-    // Global UI Helper (IMPORTANT)
+    // Global UI Helper
     // =========================
 
     public void ShowButtonHome()
     {
         buttonObject.SetActive(true);
+    }
+
+    // =========================
+    // END DAY RESULT
+    // =========================
+
+    public void GoToResult()
+    {
+        if (CharacterChecker.Instance == null) return;
+
+        int score = CharacterChecker.Instance.GetScore();
+        SceneManager.LoadScene("Result_" + score);
     }
 
     // =========================
@@ -117,77 +166,18 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void InspectTwin()
-    {
-        int targetSceneIndex = 2;
+    public void TwinInspect() => SceneManager.LoadScene("Twin_inspect");
+    public void SailorInspect() => SceneManager.LoadScene("Sailor_inspect");
+    public void AnxLadyInspect() => SceneManager.LoadScene("AnxLady_inspect");
+    public void FarmerInspect() => SceneManager.LoadScene("Farmer_inspect");
 
-        if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(targetSceneIndex);
-        }
-        else
-        {
-            Debug.LogError("Scene index 2 not found in build settings.");
-        }
-    }
+    public void AnxLadyAction() => SceneManager.LoadScene("AnxLady_action");
+    public void FarmerAction() => SceneManager.LoadScene("Farmer_action");
+    public void SailorAction() => SceneManager.LoadScene("Sailor_action");
+    public void TwinAction() => SceneManager.LoadScene("Twin_action");
 
-    public void ActionSceneButton()
-    {
-        SceneManager.LoadScene("ActionScene");
-    }
-
-    public void RightAnswer()
-    {
-        SceneManager.LoadScene("ReactionScene");
-    }
-
-    public void CloseForTheDay()
-    {
-        SceneManager.LoadScene("ClosedScene");
-    }
-
-    public void Home()
-    {
-        SceneManager.LoadScene("TeahouseView");
-    }
-
-    public void TwinInspect()
-    {
-        SceneManager.LoadScene("Twin_inspect");
-    }
-
-    public void SailorInspect()
-    {
-        SceneManager.LoadScene("Sailor_inspect");
-    }
-
-    public void AnxLadyInspect()
-    {
-        SceneManager.LoadScene("AnxLady_inspect");
-    }
-
-    public void FarmerInspect()
-    {
-        SceneManager.LoadScene("Farmer_inspect");
-    }
-
-    public void AnxLadyAction()
-    {
-        SceneManager.LoadScene("AnxLady_action");
-    }
-
-    public void FarmerAction()
-    {
-        SceneManager.LoadScene("Farmer_action");
-    }
-
-    public void SailorAction()
-    {
-        SceneManager.LoadScene("Sailor_action");
-    }
-
-    public void TwinAction()
-    {
-        SceneManager.LoadScene("Twin_action");
-    }
+    public void ActionSceneButton() => SceneManager.LoadScene("ActionScene");
+    public void RightAnswer() => SceneManager.LoadScene("ReactionScene");
+    public void CloseForTheDay() => SceneManager.LoadScene("ClosedScene");
+    public void Home() => SceneManager.LoadScene("TeahouseView");
 }
