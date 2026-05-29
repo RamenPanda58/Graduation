@@ -103,9 +103,9 @@ TextureImporter:
       name: Tutorial Selected_0
       rect:
         serializedVersion: 2
-        x: 111
+        x: 119
         y: 0
-        width: 1066
+        width: 1050
         height: 1242
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tutorial Selected_0: 3858949144674050189
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
