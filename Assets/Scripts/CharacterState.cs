@@ -15,35 +15,58 @@ public class CharacterState : MonoBehaviour
         sprites = GetComponentsInChildren<SpriteRenderer>();
 
         originalColors = new Color[sprites.Length];
+
         for (int i = 0; i < sprites.Length; i++)
         {
             originalColors[i] = sprites[i].color;
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        StartCoroutine(DelayedApplyState());
+    }
+
+    IEnumerator DelayedApplyState()
+    {
+        // wait one frame so CharacterChecker initializes first
+        yield return null;
+
         ApplyState();
     }
 
     void ApplyState()
-{
-    string result = CharacterChecker.Instance.GetCharacterResult(characterName);
-
-    if (result == "completed" || result == "nearly")
     {
-        StartCoroutine(FadeOut(2f));
-        characterButton.gameObject.SetActive(false);
-    }
-    else if (result == "failed")
-    {
-        ApplyGray();
-        characterButton.gameObject.SetActive(false);
-    }
+        if (CharacterChecker.Instance == null)
+        {
+            Debug.LogError("CharacterChecker Instance is STILL NULL");
+            return;
+        }
 
-    // mark as helped visually/logic-safe (optional redundancy)
-    CharacterChecker.Instance.SetCharacterResult(characterName, result);
-}
+        string result =
+            CharacterChecker.Instance.GetCharacterResult(characterName);
+
+        Debug.Log(characterName + " result = " + result);
+
+        if (result == "completed" || result == "nearly")
+        {
+            StartCoroutine(FadeOut(2f));
+
+            if (characterButton != null)
+            {
+                characterButton.gameObject.SetActive(false);
+            }
+        }
+        else if (result == "failed")
+        {
+            ApplyGray();
+
+            if (characterButton != null)
+            {
+                characterButton.gameObject.SetActive(false);
+            }
+        }
+    }
 
     void ApplyGray()
     {
@@ -71,7 +94,6 @@ public class CharacterState : MonoBehaviour
             yield return null;
         }
 
-        // fully invisible
         foreach (var s in sprites)
         {
             Color c = s.color;

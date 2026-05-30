@@ -6,6 +6,7 @@ public class CharacterChecker : MonoBehaviour
     public static CharacterChecker Instance;
 
     private Dictionary<string, string> characterResults = new Dictionary<string, string>();
+
     private HashSet<string> helpedCharacters = new HashSet<string>();
     private HashSet<string> scoredCharacters = new HashSet<string>();
 
@@ -21,44 +22,50 @@ public class CharacterChecker : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
+            Debug.LogError("DUPLICATE CharacterChecker DESTROYED");
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Debug.Log("CharacterChecker CREATED");
     }
 
-    // -------------------------
-    // RESULT + SCORING
-    // -------------------------
+    // =========================
+    // SET RESULT (SAFE)
+    // =========================
     public void SetCharacterResult(string characterName, string result)
     {
+        Debug.Log("SET RESULT: " + characterName + " = " + result);
+
+        // store / overwrite safely
         characterResults[characterName] = result;
 
-        // score only once per character
+        // score only ONCE per character
         if (!scoredCharacters.Contains(characterName))
         {
             if (result == "completed" || result == "nearly")
             {
                 score += 1;
+                Debug.Log("SCORE +1 (from " + characterName + ")");
             }
 
             scoredCharacters.Add(characterName);
         }
     }
 
-    // -------------------------
+    // =========================
     // HELPED SYSTEM
-    // -------------------------
+    // =========================
     public void MarkHelped(string characterName)
-{
-    helpedCharacters.Add(characterName);
-    Debug.Log("HELPED ADDED: " + characterName + " | Total: " + helpedCharacters.Count);
-}
+    {
+        helpedCharacters.Add(characterName);
+        Debug.Log("HELPED: " + characterName + " | total = " + helpedCharacters.Count);
+    }
 
     public bool AllCharactersHelped()
     {
@@ -70,9 +77,9 @@ public class CharacterChecker : MonoBehaviour
         return true;
     }
 
-    // -------------------------
+    // =========================
     // GETTERS
-    // -------------------------
+    // =========================
     public string GetCharacterResult(string characterName)
     {
         if (characterResults.ContainsKey(characterName))
@@ -86,9 +93,24 @@ public class CharacterChecker : MonoBehaviour
         return score;
     }
 
-    // DEBUG (optional)
     public int DebugHelpedCount()
     {
         return helpedCharacters.Count;
+    }
+
+    // =========================
+    // DEBUG FULL STATE
+    // =========================
+    public void PrintFinalState()
+    {
+        Debug.Log("===== FINAL STATE =====");
+
+        foreach (var kv in characterResults)
+        {
+            Debug.Log(kv.Key + " = " + kv.Value);
+        }
+
+        Debug.Log("FINAL SCORE = " + score);
+        Debug.Log("HELPED COUNT = " + helpedCharacters.Count);
     }
 }

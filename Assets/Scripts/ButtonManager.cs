@@ -31,7 +31,6 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
-        // Safety defaults
         if (tutorialUI != null)
             tutorialUI.SetActive(false);
 
@@ -64,12 +63,11 @@ public class ButtonManager : MonoBehaviour
 
         if (CharacterChecker.Instance.AllCharactersHelped())
         {
-            Debug.Log("ALL CHARACTERS HELPED → SHOW END DAY BUTTON");
+            Debug.Log("ALL CHARACTERS HELPED → SHOW END DAY");
             endDayButtonObject.SetActive(true);
         }
         else
         {
-            Debug.Log("NOT READY FOR END DAY");
             endDayButtonObject.SetActive(false);
         }
     }
@@ -87,10 +85,7 @@ public class ButtonManager : MonoBehaviour
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-
-            tutorialButtonCanvasGroup.alpha =
-                Mathf.Lerp(0f, 1f, elapsed / duration);
-
+            tutorialButtonCanvasGroup.alpha = Mathf.Lerp(0f, 1f, elapsed / duration);
             yield return null;
         }
 
@@ -99,72 +94,37 @@ public class ButtonManager : MonoBehaviour
     }
 
     // =========================
-    // Tutorial System
-    // =========================
-
-    public void OpenTutorial()
-    {
-        tutorialUI.SetActive(true);
-        exitButton.SetActive(true);
-    }
-
-    public void CloseTutorial()
-    {
-        tutorialUI.SetActive(false);
-        exitButton.SetActive(false);
-    }
-
-    // =========================
-    // Global UI Helper
-    // =========================
-
-    public void ShowButtonHome()
-    {
-        buttonObject.SetActive(true);
-    }
-
-    // =========================
     // END DAY RESULT
     // =========================
-
     public void GoToResult()
     {
         if (CharacterChecker.Instance == null) return;
 
         int score = CharacterChecker.Instance.GetScore();
+
+        Debug.Log("FINAL SCORE: " + score);
+
         SceneManager.LoadScene("Result_" + score);
     }
 
     // =========================
-    // Scene Management
+    // UI
     // =========================
+    public void OpenTutorial() => tutorialUI.SetActive(true);
+    public void CloseTutorial() => tutorialUI.SetActive(false);
+    public void ShowButtonHome() => buttonObject.SetActive(true);
 
+    // =========================
+    // SCENES
+    // =========================
     public void LoadNextScene()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("No next scene in build settings.");
-        }
+        int next = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(next);
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("Quit button clicked!");
-        Application.Quit();
-    }
-
-    public void RestartGame()
-    {
-        Debug.Log("Restart button clicked!");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    public void QuitGame() => Application.Quit();
+    public void RestartGame() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     public void TwinInspect() => SceneManager.LoadScene("Twin_inspect");
     public void SailorInspect() => SceneManager.LoadScene("Sailor_inspect");
