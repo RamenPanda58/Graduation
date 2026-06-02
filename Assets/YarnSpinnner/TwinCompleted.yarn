@@ -19,6 +19,8 @@ title: intermezzo
     <<jump flower>>
 -> Does the tea help?
     <<jump tea>>
+-> Teahouse view 
+    <<jump home>>
 ===
 
 title: backstory
