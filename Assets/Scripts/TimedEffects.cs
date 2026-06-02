@@ -3,6 +3,26 @@ using System.Collections;
 
 public class TimedEffects : MonoBehaviour
 {
+    // ---------------- GHOST EVENT ----------------
+
+    [Header("Ghost Event")]
+    public float ghostEventInterval = 30f;
+    public float reactionBeforeGhostEnds = 2f;
+
+    [Header("Ghost Animation")]
+    public Animator ghostAnimator;
+    public AnimationClip ghostFloatClip;
+
+    [Header("Reaction Character")]
+    public Animator ghostReactionAnimator;
+    public AnimationClip ghostReactionClip;
+    public AnimationClip ghostReactionIdleClip;
+
+    [Header("Ghost Reaction Timing")]
+    public float ghostReactionDelay = 0.5f;
+
+    private bool isGhostEventPlaying = false;
+
     [Header("Target Sprite (Lightning Flash)")]
     public SpriteRenderer targetSprite;
 
@@ -60,6 +80,7 @@ public class TimedEffects : MonoBehaviour
     public float effectInterval = 30f;
 
     // ---------------- JUMP SCARE SYSTEM ----------------
+
     [Header("Sailor Jump Scare")]
     public Animator sailorAnimator;
     public AnimationClip jumpScareClip;
@@ -67,6 +88,7 @@ public class TimedEffects : MonoBehaviour
 
     public float jumpScareCooldown = 2f;
     private float lastJumpScareTime = 0f;
+
     // ---------------------------------------------------
 
     private static bool hasFadedInCharacters = false;
@@ -74,7 +96,6 @@ public class TimedEffects : MonoBehaviour
     private SpriteRenderer[] characterSprites;
     private Color[] originalColors;
 
-    // FIX: farmer lock
     private bool isFarmerReacting = false;
 
     void Start()
@@ -109,6 +130,12 @@ public class TimedEffects : MonoBehaviour
         StartCoroutine(EffectLoop());
         StartCoroutine(DoorChimeLoop());
         StartCoroutine(ShamisenLoop());
+        StartCoroutine(GhostEventLoop());
+
+        if (ghostAnimator != null)
+{
+    ghostAnimator.gameObject.SetActive(false);
+}
     }
 
     IEnumerator EffectLoop()
@@ -295,6 +322,77 @@ public class TimedEffects : MonoBehaviour
         yield return new WaitForSeconds(twinReactionClip.length);
         twinAnimator.Play(twinIdleClip.name, 0, 0f);
     }
+
+    // ---------------- GHOST EVENT ----------------
+
+    IEnumerator GhostEventLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(ghostEventInterval);
+            StartCoroutine(PlayGhostEvent());
+        }
+    }
+
+    IEnumerator PlayGhostEvent()
+{
+    if (isGhostEventPlaying)
+        yield break;
+
+    if (ghostAnimator == null || ghostFloatClip == null)
+        yield break;
+
+    isGhostEventPlaying = true;
+
+    // Store start position once (optional safety check)
+    Vector3 startPos = ghostAnimator.transform.position;
+
+    // Enable ghost
+    ghostAnimator.gameObject.SetActive(true);
+
+    // Reset position so animation always starts correctly
+    ghostAnimator.transform.position = startPos;
+
+    // Play ghost animation
+    ghostAnimator.Play(ghostFloatClip.name, 0, 0f);
+
+    // Reaction timing (starts slightly before ghost finishes if you use your system)
+    if (ghostReactionAnimator != null &&
+        ghostReactionClip != null)
+    {
+        float reactionTime = Mathf.Max(
+            0f,
+            ghostFloatClip.length - reactionBeforeGhostEnds
+        );
+
+        StartCoroutine(PlayReactionAtTime(reactionTime));
+    }
+
+    // Wait for ghost animation to finish
+    yield return new WaitForSeconds(ghostFloatClip.length);
+
+    // Disable ghost again (fully hidden)
+    ghostAnimator.gameObject.SetActive(false);
+
+    isGhostEventPlaying = false;
+}
+
+  IEnumerator PlayReactionAtTime(float delay)
+{
+    yield return new WaitForSeconds(delay);
+
+    if (ghostReactionAnimator == null || ghostReactionClip == null)
+        yield break;
+
+    ghostReactionAnimator.Play(ghostReactionClip.name, 0, 0f);
+
+    yield return new WaitForSeconds(ghostReactionClip.length);
+
+    if (ghostReactionIdleClip != null)
+    {
+        ghostReactionAnimator.Play(ghostReactionIdleClip.name, 0, 0f);
+    }
+}
 
     void PlayLightningSound()
     {
