@@ -1,0 +1,1235 @@
+fileFormatVersion: 2
+guid: 807b8644e0153914d8bb268ee9646b1e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3019961080158186366
+    second: Waraji_0
+  - first:
+      213: -1359418945542942913
+    second: Waraji_1
+  - first:
+      213: -3715650112918038791
+    second: Waraji_2
+  - first:
+      213: -4171763761120033806
+    second: Waraji_3
+  - first:
+      213: -651714385097558666
+    second: Waraji_4
+  - first:
+      213: -7489677457977463293
+    second: Waraji_5
+  - first:
+      213: -7000393768063343477
+    second: Waraji_6
+  - first:
+      213: 7224375809820704006
+    second: Waraji_7
+  - first:
+      213: 164901292911172810
+    second: Waraji_8
+  - first:
+      213: 6172302588450401469
+    second: Waraji_9
+  - first:
+      213: 20399927913151394
+    second: Waraji_10
+  - first:
+      213: -5387693940180120908
+    second: Waraji_11
+  - first:
+      213: 7716672902884264564
+    second: Waraji_12
+  - first:
+      213: -4803998100230179385
+    second: Waraji_13
+  - first:
+      213: -2403343107125197225
+    second: Waraji_14
+  - first:
+      213: -3225957348713106700
+    second: Waraji_15
+  - first:
+      213: -5066740621406744695
+    second: Waraji_16
+  - first:
+      213: 6645449808902875824
+    second: Waraji_17
+  - first:
+      213: 7290584148570057310
+    second: Waraji_18
+  - first:
+      213: -643584310597822954
+    second: Waraji_19
+  - first:
+      213: -6569643341913588286
+    second: Waraji_20
+  - first:
+      213: -2164902602600016277
+    second: Waraji_21
+  - first:
+      213: 4677211242019300521
+    second: Waraji_22
+  - first:
+      213: -4328949585552182491
+    second: Waraji_23
+  - first:
+      213: 4763128977500971716
+    second: Waraji_24
+  - first:
+      213: -601315391157609552
+    second: Waraji_25
+  - first:
+      213: -2338310981501618327
+    second: Waraji_26
+  - first:
+      213: -8397196406335520475
+    second: Waraji_27
+  - first:
+      213: -3004034167147283181
+    second: Waraji_28
+  - first:
+      213: 6039403613660855603
+    second: Waraji_29
+  - first:
+      213: 8326553390797268802
+    second: Waraji_30
+  - first:
+      213: -2523578138073110132
+    second: Waraji_31
+  - first:
+      213: -6929384510635091803
+    second: Waraji_32
+  - first:
+      213: -6040176243689608013
+    second: Waraji_33
+  - first:
+      213: 739206696520460421
+    second: Waraji_34
+  - first:
+      213: -2203313280741483508
+    second: Waraji_35
+  - first:
+      213: 6235201029938662043
+    second: Waraji_36
+  - first:
+      213: 5971964476588192507
+    second: Waraji_37
+  - first:
+      213: 8635297219383784501
+    second: Waraji_38
+  - first:
+      213: -6300720941632566139
+    second: Waraji_39
+  - first:
+      213: -1221614408280408276
+    second: Waraji_40
+  - first:
+      213: 505317226286802388
+    second: Waraji_41
+  - first:
+      213: 6105190277863761922
+    second: Waraji_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Waraji_0
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 375
+        width: 112
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2849aa5e561f616d0800000000000000
+      internalID: -3019961080158186366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_1
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 444
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f0af9ebaf522de0800000000000000
+      internalID: -1359418945542942913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_2
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 446
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f651ed98eb5f6cc0800000000000000
+      internalID: -3715650112918038791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_3
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 357
+        width: 127
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3c79356faea16c0800000000000000
+      internalID: -4171763761120033806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_4
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 453
+        width: 125
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6757f3d3835a4f6f0800000000000000
+      internalID: -651714385097558666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_5
+      rect:
+        serializedVersion: 2
+        x: 2118
+        y: 357
+        width: 68
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ea003b8025f0890800000000000000
+      internalID: -7489677457977463293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_6
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 360
+        width: 71
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84e9b625fa99de90800000000000000
+      internalID: -7000393768063343477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_7
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 386
+        width: 1364
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60db94cc583224460800000000000000
+      internalID: 7224375809820704006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_8
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 368
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc19fa2ad8d94200800000000000000
+      internalID: 164901292911172810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_9
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 369
+        width: 46
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc6fce708c68a550800000000000000
+      internalID: 6172302588450401469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_10
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 368
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abf4b850a9784000800000000000000
+      internalID: 20399927913151394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_11
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 341
+        width: 34
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba0a0918e01b35b0800000000000000
+      internalID: -5387693940180120908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_12
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 369
+        width: 25
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a8c48de11271b60800000000000000
+      internalID: 7716672902884264564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_13
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 253
+        width: 54
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5f0263e25c45db0800000000000000
+      internalID: -4803998100230179385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_14
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 253
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7564b627d2c95aed0800000000000000
+      internalID: -2403343107125197225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_15
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 308
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f2f46912e81b33d0800000000000000
+      internalID: -3225957348713106700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_16
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 253
+        width: 29
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98f4204ef325fa9b0800000000000000
+      internalID: -5066740621406744695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_17
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 308
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bae7506461693c50800000000000000
+      internalID: 6645449808902875824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_18
+      rect:
+        serializedVersion: 2
+        x: 2003
+        y: 253
+        width: 19
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5aac9ce7ab5d2560800000000000000
+      internalID: 7290584148570057310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_19
+      rect:
+        serializedVersion: 2
+        x: 2098
+        y: 253
+        width: 29
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6165dc7ba778117f0800000000000000
+      internalID: -643584310597822954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_20
+      rect:
+        serializedVersion: 2
+        x: 2769
+        y: 253
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cdfa302030f3d4a0800000000000000
+      internalID: -6569643341913588286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_21
+      rect:
+        serializedVersion: 2
+        x: 2873
+        y: 253
+        width: 19
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6615b69d88b4f1e0800000000000000
+      internalID: -2164902602600016277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_22
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 253
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4260cf7dac8e040800000000000000
+      internalID: 4677211242019300521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_23
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 252
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5237696a94b7ce3c0800000000000000
+      internalID: -4328949585552182491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_24
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 253
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2a053a1980a1240800000000000000
+      internalID: 4763128977500971716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_25
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 253
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb531076d2b7a7f0800000000000000
+      internalID: -601315391157609552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_26
+      rect:
+        serializedVersion: 2
+        x: 1845
+        y: 252
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 967733d1d86ac8fd0800000000000000
+      internalID: -2338310981501618327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_27
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 254
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5214f23db5a277b80800000000000000
+      internalID: -8397196406335520475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_28
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 252
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31dbc0e47d68f46d0800000000000000
+      internalID: -3004034167147283181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_29
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 252
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d3777a69540d350800000000000000
+      internalID: 6039403613660855603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_30
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 253
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247abc5613cdd8370800000000000000
+      internalID: 8326553390797268802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_31
+      rect:
+        serializedVersion: 2
+        x: 2172
+        y: 252
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89e53dcd037afcd0800000000000000
+      internalID: -2523578138073110132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_32
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 255
+        width: 65
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a850834081e5df90800000000000000
+      internalID: -6929384510635091803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_33
+      rect:
+        serializedVersion: 2
+        x: 2321
+        y: 255
+        width: 65
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bca02665bbfc2ca0800000000000000
+      internalID: -6040176243689608013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_34
+      rect:
+        serializedVersion: 2
+        x: 2391
+        y: 252
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58821b1f290324a00800000000000000
+      internalID: 739206696520460421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_35
+      rect:
+        serializedVersion: 2
+        x: 2441
+        y: 253
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0cd08cae324c61e0800000000000000
+      internalID: -2203313280741483508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_36
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 252
+        width: 42
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ac4ac1d42e78650800000000000000
+      internalID: 6235201029938662043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_37
+      rect:
+        serializedVersion: 2
+        x: 2540
+        y: 254
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf27a46fc0ea0e250800000000000000
+      internalID: 5971964476588192507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_38
+      rect:
+        serializedVersion: 2
+        x: 2621
+        y: 252
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534f94bb11db6d770800000000000000
+      internalID: 8635297219383784501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_39
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 252
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c402dafa75f88a0800000000000000
+      internalID: -6300720941632566139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_40
+      rect:
+        serializedVersion: 2
+        x: 2714
+        y: 254
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f72f50b24fb0fe0800000000000000
+      internalID: -1221614408280408276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_41
+      rect:
+        serializedVersion: 2
+        x: 2820
+        y: 252
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5e5bb075f330700800000000000000
+      internalID: 505317226286802388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waraji_42
+      rect:
+        serializedVersion: 2
+        x: 2900
+        y: 252
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208ec36063ef9b450800000000000000
+      internalID: 6105190277863761922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Waraji_0: -3019961080158186366
+      Waraji_1: -1359418945542942913
+      Waraji_10: 20399927913151394
+      Waraji_11: -5387693940180120908
+      Waraji_12: 7716672902884264564
+      Waraji_13: -4803998100230179385
+      Waraji_14: -2403343107125197225
+      Waraji_15: -3225957348713106700
+      Waraji_16: -5066740621406744695
+      Waraji_17: 6645449808902875824
+      Waraji_18: 7290584148570057310
+      Waraji_19: -643584310597822954
+      Waraji_2: -3715650112918038791
+      Waraji_20: -6569643341913588286
+      Waraji_21: -2164902602600016277
+      Waraji_22: 4677211242019300521
+      Waraji_23: -4328949585552182491
+      Waraji_24: 4763128977500971716
+      Waraji_25: -601315391157609552
+      Waraji_26: -2338310981501618327
+      Waraji_27: -8397196406335520475
+      Waraji_28: -3004034167147283181
+      Waraji_29: 6039403613660855603
+      Waraji_3: -4171763761120033806
+      Waraji_30: 8326553390797268802
+      Waraji_31: -2523578138073110132
+      Waraji_32: -6929384510635091803
+      Waraji_33: -6040176243689608013
+      Waraji_34: 739206696520460421
+      Waraji_35: -2203313280741483508
+      Waraji_36: 6235201029938662043
+      Waraji_37: 5971964476588192507
+      Waraji_38: 8635297219383784501
+      Waraji_39: -6300720941632566139
+      Waraji_4: -651714385097558666
+      Waraji_40: -1221614408280408276
+      Waraji_41: 505317226286802388
+      Waraji_42: 6105190277863761922
+      Waraji_5: -7489677457977463293
+      Waraji_6: -7000393768063343477
+      Waraji_7: 7224375809820704006
+      Waraji_8: 164901292911172810
+      Waraji_9: 6172302588450401469
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
