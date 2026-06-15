@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterID: Twin
-  result: 1
+  result: 2
   mainArt: {fileID: 843251145}
   topLeftPanel: {fileID: 1259241447}
   topRightPanel: {fileID: 1507777654}

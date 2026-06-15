@@ -26,7 +26,6 @@ public class ActionButtons : MonoBehaviour
     [Header("Timing")]
     public float panelDelay = 1f;
     public float mainArtVisibleTime = 3f;
-    public float fadeDuration = 2f;
 
     private bool hasBeenPressed = false;
 
@@ -37,7 +36,7 @@ public class ActionButtons : MonoBehaviour
 
         hasBeenPressed = true;
 
-        // Disable button to prevent double clicks
+        // Disable button to prevent double-clicks
         Button button = GetComponent<Button>();
         if (button != null)
             button.interactable = false;
@@ -62,14 +61,6 @@ public class ActionButtons : MonoBehaviour
 
     private IEnumerator PlayTransitionAndLoad(string sceneName)
     {
-        Image mainArtImage = mainArt.GetComponent<Image>();
-
-        if (mainArtImage == null)
-        {
-            Debug.LogError("Main Art is missing an Image component!");
-            yield break;
-        }
-
         // Show transition elements
         mainArt.SetActive(true);
         topLeftPanel.SetActive(true);
@@ -77,12 +68,7 @@ public class ActionButtons : MonoBehaviour
         bottomLeftPanel.SetActive(true);
         bottomRightPanel.SetActive(true);
 
-        // Reset alpha
-        Color resetColor = mainArtImage.color;
-        resetColor.a = 1f;
-        mainArtImage.color = resetColor;
-
-        // Reveal artwork
+        // Reveal artwork one panel at a time
         yield return new WaitForSeconds(panelDelay);
         topLeftPanel.SetActive(false);
 
@@ -95,30 +81,10 @@ public class ActionButtons : MonoBehaviour
         yield return new WaitForSeconds(panelDelay);
         bottomRightPanel.SetActive(false);
 
-        // Keep artwork visible
+        // Keep the artwork visible
         yield return new WaitForSeconds(mainArtVisibleTime);
 
-        // Fade artwork
-        Color startColor = mainArtImage.color;
-        float elapsed = 0f;
-
-        while (elapsed < fadeDuration)
-        {
-            elapsed += Time.deltaTime;
-
-            Color c = startColor;
-            c.a = Mathf.Lerp(startColor.a, 0f, elapsed / fadeDuration);
-
-            mainArtImage.color = c;
-
-            yield return null;
-        }
-
-        // Make sure it's fully transparent
-        Color finalColor = mainArtImage.color;
-        finalColor.a = 0f;
-        mainArtImage.color = finalColor;
-
+        // Load the next scene immediately
         SceneManager.LoadScene(sceneName);
     }
 }

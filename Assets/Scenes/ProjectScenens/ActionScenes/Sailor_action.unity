@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterID: Sailor
-  result: 1
+  result: 2
   mainArt: {fileID: 1582045934}
   topLeftPanel: {fileID: 550820797}
   topRightPanel: {fileID: 2125420232}

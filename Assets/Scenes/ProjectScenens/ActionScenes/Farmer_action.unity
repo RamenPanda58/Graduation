@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterID: Farmer
-  result: 1
+  result: 2
   mainArt: {fileID: 2075064384}
   topLeftPanel: {fileID: 1133738029}
   topRightPanel: {fileID: 1974883947}
