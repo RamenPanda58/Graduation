@@ -10,6 +10,10 @@ public class CharacterState : MonoBehaviour
     private SpriteRenderer[] sprites;
     private Color[] originalColors;
 
+    private const string KEY_PREFIX = "Character_";
+
+    private bool isCompletedForever = false;
+
     private void Awake()
     {
         sprites = GetComponentsInChildren<SpriteRenderer>();
@@ -20,51 +24,50 @@ public class CharacterState : MonoBehaviour
         {
             originalColors[i] = sprites[i].color;
         }
+
+        // 🔥 IMPORTANT: instant skip BEFORE first render logic
+        if (PlayerPrefs.GetInt(KEY_PREFIX + characterName, 0) == 1)
+        {
+            isCompletedForever = true;
+            characterButton.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 
     private void Start()
     {
+        if (isCompletedForever)
+            return;
+
         StartCoroutine(DelayedApplyState());
     }
 
     IEnumerator DelayedApplyState()
     {
-        // wait one frame so CharacterChecker initializes first
         yield return null;
-
         ApplyState();
     }
 
     void ApplyState()
     {
         if (CharacterChecker.Instance == null)
-        {
-            Debug.LogError("CharacterChecker Instance is STILL NULL");
             return;
-        }
 
-        string result =
-            CharacterChecker.Instance.GetCharacterResult(characterName);
-
-        Debug.Log(characterName + " result = " + result);
+        string result = CharacterChecker.Instance.GetCharacterResult(characterName);
 
         if (result == "completed" || result == "nearly")
         {
             StartCoroutine(FadeOut(2f));
 
             if (characterButton != null)
-            {
                 characterButton.gameObject.SetActive(false);
-            }
         }
         else if (result == "failed")
         {
             ApplyGray();
 
             if (characterButton != null)
-            {
                 characterButton.gameObject.SetActive(false);
-            }
         }
     }
 
@@ -72,7 +75,8 @@ public class CharacterState : MonoBehaviour
     {
         foreach (var s in sprites)
         {
-            s.color = Color.gray;
+            if (s != null)
+                s.color = Color.gray;
         }
     }
 
@@ -86,6 +90,8 @@ public class CharacterState : MonoBehaviour
 
             for (int i = 0; i < sprites.Length; i++)
             {
+                if (sprites[i] == null) continue;
+
                 Color c = originalColors[i];
                 c.a = Mathf.Lerp(originalColors[i].a, 0f, t);
                 sprites[i].color = c;
@@ -94,11 +100,10 @@ public class CharacterState : MonoBehaviour
             yield return null;
         }
 
-        foreach (var s in sprites)
-        {
-            Color c = s.color;
-            c.a = 0f;
-            s.color = c;
-        }
+        // 🔥 SAVE STATE
+        PlayerPrefs.SetInt(KEY_PREFIX + characterName, 1);
+        PlayerPrefs.Save();
+
+        gameObject.SetActive(false);
     }
 }

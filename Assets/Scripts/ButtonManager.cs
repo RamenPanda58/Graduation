@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Collections;
 
 public class ButtonManager : MonoBehaviour
@@ -11,12 +10,6 @@ public class ButtonManager : MonoBehaviour
     [Header("End Day UI")]
     [SerializeField] private GameObject endDayButtonObject;
 
-    [Header("Tutorial UI")]
-    [SerializeField] private GameObject tutorialUI;
-    [SerializeField] private GameObject tutorialButtonObject;
-    [SerializeField] private GameObject exitButton;
-    [SerializeField] private CanvasGroup tutorialButtonCanvasGroup;
-
     [Header("Scene Transition (OLD)")]
     [SerializeField] private GameObject mainArt;
     [SerializeField] private GameObject topLeftPanel;
@@ -25,8 +18,6 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject bottomRightPanel;
 
     [SerializeField] private float timeWaitAnimation = 3f;
-
-    private static bool tutorialButtonShown = false;
 
     [Header("Main Scene Voice Over (NEW)")]
     [SerializeField] private GameObject introBackground;
@@ -54,15 +45,6 @@ public class ButtonManager : MonoBehaviour
         if (mainArt != null)
             mainArt.SetActive(false);
 
-        if (tutorialUI != null)
-            tutorialUI.SetActive(false);
-
-        if (exitButton != null)
-            exitButton.SetActive(false);
-
-        if (tutorialButtonObject != null)
-            tutorialButtonObject.SetActive(false);
-
         if (endDayButtonObject != null)
             endDayButtonObject.SetActive(false);
 
@@ -72,11 +54,6 @@ public class ButtonManager : MonoBehaviour
 
         if (introTextObject != null)
             introTextObject.SetActive(false);
-
-        if (!tutorialButtonShown)
-        {
-            StartCoroutine(ShowTutorialButtonAfterDelay());
-        }
 
         CheckEndDay();
     }
@@ -95,40 +72,6 @@ public class ButtonManager : MonoBehaviour
             endDayButtonObject.SetActive(true);
         else
             endDayButtonObject.SetActive(false);
-    }
-
-    // =========================
-    // TUTORIAL BUTTON
-    // =========================
-
-    private IEnumerator ShowTutorialButtonAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-
-        if (tutorialButtonObject != null)
-            tutorialButtonObject.SetActive(true);
-
-        if (tutorialButtonCanvasGroup != null)
-            tutorialButtonCanvasGroup.alpha = 0f;
-
-        float duration = 1f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-
-            if (tutorialButtonCanvasGroup != null)
-                tutorialButtonCanvasGroup.alpha =
-                    Mathf.Lerp(0f, 1f, elapsed / duration);
-
-            yield return null;
-        }
-
-        if (tutorialButtonCanvasGroup != null)
-            tutorialButtonCanvasGroup.alpha = 1f;
-
-        tutorialButtonShown = true;
     }
 
     // =========================
@@ -151,25 +94,55 @@ public class ButtonManager : MonoBehaviour
         if (bottomRightPanel != null) bottomRightPanel.SetActive(true);
 
         yield return new WaitForSeconds(1f);
-        if (topLeftPanel != null)
-            topLeftPanel.SetActive(false);
+        if (topLeftPanel != null) topLeftPanel.SetActive(false);
 
         yield return new WaitForSeconds(1f);
-        if (topRightPanel != null)
-            topRightPanel.SetActive(false);
+        if (topRightPanel != null) topRightPanel.SetActive(false);
 
         yield return new WaitForSeconds(1f);
-        if (bottomLeftPanel != null)
-            bottomLeftPanel.SetActive(false);
+        if (bottomLeftPanel != null) bottomLeftPanel.SetActive(false);
 
         yield return new WaitForSeconds(1f);
-        if (bottomRightPanel != null)
-            bottomRightPanel.SetActive(false);
+        if (bottomRightPanel != null) bottomRightPanel.SetActive(false);
 
         yield return new WaitForSeconds(timeWaitAnimation);
 
         SceneManager.LoadScene("TeahouseView");
     }
+
+
+ public void ClosingShop()
+    {
+        StartCoroutine(TransitionAndLoad2());
+    }
+
+    private IEnumerator TransitionAndLoad2()
+    {
+        if (mainArt != null)
+            mainArt.SetActive(true);
+
+        if (topLeftPanel != null) topLeftPanel.SetActive(true);
+        if (topRightPanel != null) topRightPanel.SetActive(true);
+        if (bottomLeftPanel != null) bottomLeftPanel.SetActive(true);
+        if (bottomRightPanel != null) bottomRightPanel.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        if (topLeftPanel != null) topLeftPanel.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+        if (topRightPanel != null) topRightPanel.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+        if (bottomLeftPanel != null) bottomLeftPanel.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
+        if (bottomRightPanel != null) bottomRightPanel.SetActive(false);
+
+        yield return new WaitForSeconds(timeWaitAnimation);
+
+        SceneManager.LoadScene("ClosedScene");
+    }
+
 
     // =========================
     // NEW VOICE OVER INTRO
@@ -212,24 +185,6 @@ public class ButtonManager : MonoBehaviour
     // UI
     // =========================
 
-    public void OpenTutorial()
-    {
-        if (tutorialUI != null)
-            tutorialUI.SetActive(true);
-
-        if (exitButton != null)
-            exitButton.SetActive(true);
-    }
-
-    public void CloseTutorial()
-    {
-        if (tutorialUI != null)
-            tutorialUI.SetActive(false);
-
-        if (exitButton != null)
-            exitButton.SetActive(false);
-    }
-
     public void ShowButtonHome()
     {
         if (buttonObject != null)
@@ -243,6 +198,8 @@ public class ButtonManager : MonoBehaviour
     public void QuitGame() => Application.Quit();
 
     public void RestartGame() => SceneManager.LoadScene("StartScene");
+
+    public void EndExperience() => SceneManager.LoadScene("ClosedScene");
 
     // =========================
     // CHARACTER SCENES
