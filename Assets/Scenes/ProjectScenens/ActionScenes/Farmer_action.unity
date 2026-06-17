@@ -887,7 +887,6 @@ MonoBehaviour:
   bottomRightPanel: {fileID: 1259442099}
   panelDelay: 1
   mainArtVisibleTime: 3
-  fadeDuration: 2
 --- !u!114 &434326244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,7 +1581,6 @@ MonoBehaviour:
   bottomRightPanel: {fileID: 1259442099}
   panelDelay: 1
   mainArtVisibleTime: 3
-  fadeDuration: 2
 --- !u!114 &824644254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1829,6 @@ MonoBehaviour:
   bottomRightPanel: {fileID: 1259442099}
   panelDelay: 1
   mainArtVisibleTime: 3
-  fadeDuration: 2
 --- !u!114 &851549861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,14 +1870,14 @@ RectTransform:
   m_GameObject: {fileID: 859631695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.68126434, y: 0.74319476, z: 0.74319476}
+  m_LocalScale: {x: 0.69373, y: 0.69373, z: 0.69373}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 669690415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63, y: 5}
+  m_AnchoredPosition: {x: -205.8, y: 191.4}
   m_SizeDelta: {x: 527.0847, y: 77.6021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859631697
@@ -1905,8 +1902,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c23fc8eb997e6a24dae7bd2be9026d92, type: 2}
+  m_sharedMaterial: {fileID: 1029965880791952767, guid: c23fc8eb997e6a24dae7bd2be9026d92, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1930,8 +1927,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 27
+  m_fontSizeBase: 27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3208,10 +3205,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonObject: {fileID: 0}
   endDayButtonObject: {fileID: 0}
-  tutorialUI: {fileID: 0}
-  tutorialButtonObject: {fileID: 0}
-  exitButton: {fileID: 0}
-  tutorialButtonCanvasGroup: {fileID: 0}
+  mainArt: {fileID: 0}
+  topLeftPanel: {fileID: 0}
+  topRightPanel: {fileID: 0}
+  bottomLeftPanel: {fileID: 0}
+  bottomRightPanel: {fileID: 0}
+  timeWaitAnimation: 3
+  introBackground: {fileID: 0}
+  introTextObject: {fileID: 0}
+  narrationAudio: {fileID: 0}
 --- !u!4 &1883437327
 Transform:
   m_ObjectHideFlags: 0
@@ -3382,7 +3384,6 @@ MonoBehaviour:
   bottomRightPanel: {fileID: 1259442099}
   panelDelay: 1
   mainArtVisibleTime: 3
-  fadeDuration: 2
 --- !u!114 &1913428066
 MonoBehaviour:
   m_ObjectHideFlags: 0
