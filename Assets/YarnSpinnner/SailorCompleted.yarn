@@ -1,4 +1,50 @@
 ﻿title: SailorCompleted
 ---
-Completed!
+Sailor: Hey there, wow how did you know this is what I needed?!
+-> You look scared, what happened to you?
+    <<jump backstory>>
+-> What is the meaning of the charm on your side? 
+    <<jump omamori>>
+-> Does the food help?
+    <<jump food>>
+-> Back to teahouse 
+    <<jump home>>
+===
+
+title: intermezzo
+---
+-> You look scared, what happened to you?
+    <<jump backstory>>
+-> What is the meaning of the charm on your side? 
+    <<jump omamori>>
+-> Does the food help?
+    <<jump food>>
+-> Back to teahouse 
+    <<jump home>>
+===
+
+title: backstory
+---
+Sailor: Ugh... so it happaned as I expected it to happen but they called me paranoid. I hated the see, you know that? I was too afraid to die at see and look what happened! But I had to go to make money for my family. I wonder what else I could have experienced in life...
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: omamori
+---
+Sailor: My family gave it to me! They knew I was scared so they gave it as a good luck charm, but I guess nothihg tames the sea. She does what she wants. 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: food
+---
+Sailor: Oh *stuffs mouth with food* yeaaah I was famished! Imagine seing only water and salty water at that for months and then to get a good nutritious meal! 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: home
+---
+Sailor: Thank's again, aye!
 ===

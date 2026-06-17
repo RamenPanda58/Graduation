@@ -1,4 +1,50 @@
 ﻿title: FarmerCompleted
 ---
-Completed!
+Farmer: I suppose people cant completely hide their emotions. Thank you for paying close attention. 
+-> What happened to your mouth?
+    <<jump backstory>>
+-> What's with the necklace? 
+    <<jump necklace>>
+-> Does the music help?
+    <<jump music>>
+-> Back to teahouse 
+    <<jump home>>
+===
+
+title: intermezzo
+---
+-> What happened to your mouth?
+    <<jump backstory>>
+-> What's with the necklace? 
+    <<jump necklace>>
+-> Does the music help?
+    <<jump music>>
+-> Back to teahouse  
+    <<jump home>>
+===
+
+title: backstory
+---
+Farmer: Hm... I don't know how to tell this story. I, well... I was am... I was a farmer. My family and I lived on this beautiful farm, but one day the fields cought fire. I couldn't save it... I couldn't save anything in the end I guess. My familiy was fine, but then famish came and I was the only one left. To answer your question, I couldn't handle food or drinks out of shame. So I did it myself. 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: necklace
+---
+Farmer: Farming gets boring, so music was a big support on difficult days. I used to play guitar...
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: music
+---
+Farmer: Oh yes, thank you! I don't have to do much but enjoy it. 
+-> Ask something else
+    <<jump intermezzo>>
+===
+
+title: home
+---
+Farmer: Thank you ... again!
 ===

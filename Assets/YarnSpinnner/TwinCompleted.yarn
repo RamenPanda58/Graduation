@@ -7,7 +7,7 @@ Girl: Oh, thank you for this tea I really appreciate it. As a token of understan
     <<jump flower>>
 -> Does the tea help?
     <<jump tea>>
--> Teahouse view 
+-> Back to teahouse 
     <<jump home>>
 ===
 
@@ -19,7 +19,7 @@ title: intermezzo
     <<jump flower>>
 -> Does the tea help?
     <<jump tea>>
--> Teahouse view 
+-> Back to teahouse 
     <<jump home>>
 ===
 
