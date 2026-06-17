@@ -403,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &250493107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   topRightPanel: {fileID: 1149141011}
   bottomLeftPanel: {fileID: 729742297}
   bottomRightPanel: {fileID: 233536160}
-  timeWaitAnimation: 3
+  timeWaitAnimation: 1.5
   introBackground: {fileID: 0}
   introTextObject: {fileID: 0}
   narrationAudio: {fileID: 0}
@@ -3829,6 +3829,10 @@ PrefabInstance:
     - target: {fileID: 8869212991390930952, guid: be00b9c2bc71cef44b1b6807659d205c, type: 3}
       propertyPath: m_Name
       value: CharacterAnimationPrep_AnxiousLady2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869212991390930952, guid: be00b9c2bc71cef44b1b6807659d205c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9199846757183762055, guid: be00b9c2bc71cef44b1b6807659d205c, type: 3}
       propertyPath: m_LocalRotation.z

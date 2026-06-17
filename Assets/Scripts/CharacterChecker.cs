@@ -14,7 +14,7 @@ public class CharacterChecker : MonoBehaviour
 
     private readonly string[] allCharacters =
     {
-        "AnxLady",
+     //   "AnxLady",
         "Twin",
         "Farmer",
         "Sailor"

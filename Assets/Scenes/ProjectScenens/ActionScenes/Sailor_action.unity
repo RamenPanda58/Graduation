@@ -1084,7 +1084,7 @@ MonoBehaviour:
   bottomLeftPanel: {fileID: 802592651}
   bottomRightPanel: {fileID: 1004231108}
   panelDelay: 1
-  mainArtVisibleTime: 3
+  mainArtVisibleTime: 1.5
 --- !u!114 &434326244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   bottomLeftPanel: {fileID: 802592651}
   bottomRightPanel: {fileID: 1004231108}
   panelDelay: 1
-  mainArtVisibleTime: 3
+  mainArtVisibleTime: 1.5
 --- !u!114 &824644254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   bottomLeftPanel: {fileID: 802592651}
   bottomRightPanel: {fileID: 1004231108}
   panelDelay: 1
-  mainArtVisibleTime: 3
+  mainArtVisibleTime: 1.5
 --- !u!114 &851549861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3312,7 +3312,7 @@ MonoBehaviour:
   bottomLeftPanel: {fileID: 802592651}
   bottomRightPanel: {fileID: 1004231108}
   panelDelay: 1
-  mainArtVisibleTime: 3
+  mainArtVisibleTime: 1.5
 --- !u!114 &1913428066
 MonoBehaviour:
   m_ObjectHideFlags: 0
