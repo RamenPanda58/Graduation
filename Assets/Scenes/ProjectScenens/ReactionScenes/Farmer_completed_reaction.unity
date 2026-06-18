@@ -1964,6 +1964,11 @@ Transform:
   - {fileID: 369433593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &742555041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8478898941362165345, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1717191529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &762569460
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,6 +4547,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 102
       objectReference: {fileID: 0}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: startingExpression
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 742555041}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1999164395}
     - target: {fileID: 3968331273040744362, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
       propertyPath: m_SortingOrder
       value: 107
@@ -5307,6 +5324,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1999164395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6891381735832304208, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1717191529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046297044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8587558571885197290, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}

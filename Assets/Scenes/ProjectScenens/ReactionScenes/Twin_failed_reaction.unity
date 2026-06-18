@@ -211,6 +211,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 512623983}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 599ca7a661b917f4d8868947f0237b82, type: 3}
+--- !u!1 &89876810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7797982369444414722, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &90279848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1294,6 +1299,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &682362639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3112704274294898786, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &711108942 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2230300753713750321, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &748586072
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,6 +4623,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAnimationPrep_Twin3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: startingExpression
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 682362639}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 711108942}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[3]'
+      value: 
+      objectReference: {fileID: 89876810}
     - target: {fileID: 9062000608667800442, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
       propertyPath: m_SortingOrder
       value: 105

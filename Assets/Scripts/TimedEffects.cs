@@ -5,6 +5,38 @@ public class TimedEffects : MonoBehaviour
 {
     // ---------------- GHOST EVENT ----------------
 
+    [Header("Animation Blending")]
+public float animationBlendTime = 0.25f;
+
+[Header("Smell Color Tint (Food Effect)")]
+public GameObject farmerTintRoot; // assign farmer root OR character root
+
+public Color smellTintColor = new Color(0.8f, 1f, 0.8f, 1f); // light green
+
+public float smellTintFadeTime = 0.5f;
+
+private SpriteRenderer[] farmerTintSprites;
+private Color[] farmerOriginalColors;
+
+[Header("Smell Event (Food Reaction)")]
+public float smellInterval = 12f;
+
+public SpriteRenderer smellSprite1;
+public SpriteRenderer smellSprite2;
+public SpriteRenderer smellSprite3;
+
+public float smellFrameDelay = 0.2f;
+public float smellFadeOutTime = 1.5f;
+
+private bool isSmellPlaying = false;
+
+
+[Header("Smell Reaction (Sailor)")]
+public AnimationClip sailorSmellReactionClip;
+
+[Header("Smell Reaction (Farmer)")]
+public AnimationClip farmerSmellReactionClip;
+
     [Header("Ghost Event")]
     public float ghostEventInterval = 30f;
     public float reactionBeforeGhostEnds = 2f;
@@ -52,7 +84,25 @@ public class TimedEffects : MonoBehaviour
     [Header("Twin Reaction (Chime Response)")]
     public Animator twinAnimator;
     public AnimationClip twinReactionClip;
-    public AnimationClip twinIdleClip;
+    public AnimationClip twinIdleClip1;
+    public AnimationClip twinIdleClip2;
+    public int idle2LoopCount = 2;
+
+
+[Header("Twin Idle Switching")]
+public float idleSwitchMinTime = 10f;
+public float idleSwitchMaxTime = 30f;
+
+private AnimationClip currentTwinIdle;
+
+    [Header("Twin Ambient Sigh")]
+public AnimationClip twinSighClip;
+
+public float sighMinInterval = 15f;
+public float sighMaxInterval = 40f;
+
+private bool isTwinReacting = false;
+private bool isTwinSighing = false;
 
     [Header("Shamisen Event")]
     public AudioSource shamisenAudio;
@@ -98,46 +148,66 @@ public class TimedEffects : MonoBehaviour
 
     private bool isFarmerReacting = false;
 
-    void Start()
+   void Start()
+{
+    if (targetSprite == null)
+        targetSprite = GetComponent<SpriteRenderer>();
+
+    if (lightningAudio == null)
+        lightningAudio = GetComponent<AudioSource>();
+
+    SetOpacity(minOpacity);
+    SetOverlayOpacity(normalOverlayOpacity);
+
+    if (characterRoot != null)
     {
-        if (targetSprite == null)
-            targetSprite = GetComponent<SpriteRenderer>();
+        characterSprites = characterRoot.GetComponentsInChildren<SpriteRenderer>();
+        originalColors = new Color[characterSprites.Length];
 
-        if (lightningAudio == null)
-            lightningAudio = GetComponent<AudioSource>();
-
-        SetOpacity(minOpacity);
-        SetOverlayOpacity(normalOverlayOpacity);
-
-        if (characterRoot != null)
+        for (int i = 0; i < characterSprites.Length; i++)
         {
-            characterSprites = characterRoot.GetComponentsInChildren<SpriteRenderer>();
-            originalColors = new Color[characterSprites.Length];
+            originalColors[i] = characterSprites[i].color;
 
-            for (int i = 0; i < characterSprites.Length; i++)
+            if (!hasFadedInCharacters)
             {
-                originalColors[i] = characterSprites[i].color;
-
-                if (!hasFadedInCharacters)
-                {
-                    Color c = characterSprites[i].color;
-                    c.a = 0f;
-                    characterSprites[i].color = c;
-                }
+                Color c = characterSprites[i].color;
+                c.a = 0f;
+                characterSprites[i].color = c;
             }
         }
-
-        StartCoroutine(EffectLoop());
-        StartCoroutine(DoorChimeLoop());
-        StartCoroutine(ShamisenLoop());
-        StartCoroutine(GhostEventLoop());
-
-        if (ghostAnimator != null)
-{
-    ghostAnimator.gameObject.SetActive(false);
-}
     }
 
+    currentTwinIdle = twinIdleClip1;
+
+    if (twinAnimator != null && currentTwinIdle != null)
+    {
+        twinAnimator.Play(currentTwinIdle.name);
+    }
+
+    // ---------------- START ALL LOOPS ----------------
+    StartCoroutine(EffectLoop());
+    StartCoroutine(DoorChimeLoop());
+    StartCoroutine(ShamisenLoop());
+    StartCoroutine(GhostEventLoop());
+    StartCoroutine(TwinIdleSwitchLoop());
+    StartCoroutine(SmellEventLoop());   // ✅ FIXED HERE
+
+    if (ghostAnimator != null)
+    {
+        ghostAnimator.gameObject.SetActive(false);
+    }
+
+    if (farmerTintRoot != null)
+{
+    farmerTintSprites = farmerTintRoot.GetComponentsInChildren<SpriteRenderer>();
+    farmerOriginalColors = new Color[farmerTintSprites.Length];
+
+    for (int i = 0; i < farmerTintSprites.Length; i++)
+    {
+        farmerOriginalColors[i] = farmerTintSprites[i].color;
+    }
+}
+}
     IEnumerator EffectLoop()
     {
         while (true)
@@ -300,28 +370,100 @@ public class TimedEffects : MonoBehaviour
 
     IEnumerator PlayJumpScareThenIdle()
     {
-        sailorAnimator.Play(jumpScareClip.name, 0, 0f);
+        sailorAnimator.CrossFade(jumpScareClip.name, animationBlendTime);
         yield return new WaitForSeconds(jumpScareClip.length);
-        sailorAnimator.Play(idleClip.name, 0, 0f);
+        sailorAnimator.CrossFade(idleClip.name, animationBlendTime);
     }
 
     // ---------------- TWIN REACTION ----------------
-
-    void TriggerTwinReaction()
+IEnumerator TwinIdleSwitchLoop()
+{
+    while (true)
     {
-        if (twinAnimator == null) return;
-        if (twinReactionClip == null) return;
-        if (twinIdleClip == null) return;
+        yield return new WaitForSeconds(
+            Random.Range(idleSwitchMinTime, idleSwitchMaxTime)
+        );
 
-        StartCoroutine(PlayTwinReactionThenIdle());
+        if (isTwinReacting || isTwinSighing)
+            continue;
+
+        // Play Idle 2
+        currentTwinIdle = twinIdleClip2;
+        twinAnimator.CrossFade(currentTwinIdle.name, animationBlendTime);
+
+        // Wait for Idle 2 to loop twice
+        yield return new WaitForSeconds(
+            twinIdleClip2.length * idle2LoopCount
+        );
+
+        // Return to Idle 1
+        currentTwinIdle = twinIdleClip1;
+        twinAnimator.CrossFade(currentTwinIdle.name, animationBlendTime);
+    }
+}
+
+   void TriggerTwinReaction()
+{
+
+
+    if (isTwinReacting || isTwinSighing)
+        return;
+
+    StartCoroutine(PlayTwinReactionThenIdle());
+}
+
+IEnumerator PlayTwinReactionThenIdle()
+{
+    isTwinReacting = true;
+
+    // Play reaction
+    twinAnimator.CrossFade(twinReactionClip.name, animationBlendTime);
+
+    yield return new WaitForSeconds(twinReactionClip.length);
+
+    // Play sigh immediately after
+    if (twinSighClip != null)
+    {
+        twinAnimator.CrossFade(twinSighClip.name, animationBlendTime);
+
+        yield return new WaitForSeconds(twinSighClip.length);
     }
 
-    IEnumerator PlayTwinReactionThenIdle()
+    // Return to current idle
+    twinAnimator.CrossFade(currentTwinIdle.name, animationBlendTime);
+
+    isTwinReacting = false;
+}
+
+IEnumerator TwinSighLoop()
+{
+    while (true)
     {
-        twinAnimator.Play(twinReactionClip.name, 0, 0f);
-        yield return new WaitForSeconds(twinReactionClip.length);
-        twinAnimator.Play(twinIdleClip.name, 0, 0f);
+        float waitTime = Random.Range(sighMinInterval, sighMaxInterval);
+
+        yield return new WaitForSeconds(waitTime);
+
+        if (isTwinReacting || isTwinSighing)
+            continue;
+
+        StartCoroutine(PlayTwinSighThenIdle());
     }
+}
+
+IEnumerator PlayTwinSighThenIdle()
+{
+    
+
+    isTwinSighing = true;
+
+    twinAnimator.CrossFade(twinSighClip.name, animationBlendTime);
+
+    yield return new WaitForSeconds(twinSighClip.length);
+
+    twinAnimator.CrossFade(currentTwinIdle.name, animationBlendTime);
+
+    isTwinSighing = false;
+}
 
     // ---------------- GHOST EVENT ----------------
 
@@ -422,4 +564,132 @@ public class TimedEffects : MonoBehaviour
         c.a = alpha;
         darkOverlay.color = c;
     }
+
+    IEnumerator SmellEventLoop()
+{
+    yield return new WaitForSeconds(2f); // optional initial delay
+
+    while (true)
+    {
+        yield return new WaitForSeconds(smellInterval);
+
+        if (!isSmellPlaying)
+        {
+            StartCoroutine(PlaySmellEvent());
+        }
+    }
+}
+
+IEnumerator PlaySmellEvent()
+{
+    isSmellPlaying = true;
+
+    // CHARACTER ANIMATION
+    if (sailorAnimator != null && sailorSmellReactionClip != null)
+        sailorAnimator.CrossFade(sailorSmellReactionClip.name, animationBlendTime);
+
+    if (farmerAnimator != null && farmerSmellReactionClip != null)
+        farmerAnimator.CrossFade(farmerSmellReactionClip.name, animationBlendTime);
+
+    // 🍃 FOOD SMELL TINT EFFECT
+    StartCoroutine(PlaySmellTintEffect());
+
+    // SPRITE SEQUENCE (your existing code)
+    smellSprite1.gameObject.SetActive(true);
+    smellSprite2.gameObject.SetActive(false);
+    smellSprite3.gameObject.SetActive(false);
+
+    yield return new WaitForSeconds(smellFrameDelay);
+
+    smellSprite1.gameObject.SetActive(false);
+    smellSprite2.gameObject.SetActive(true);
+
+    yield return new WaitForSeconds(smellFrameDelay);
+
+    smellSprite2.gameObject.SetActive(false);
+    smellSprite3.gameObject.SetActive(true);
+
+    // fade out
+    Color c = smellSprite3.color;
+    float t = 0f;
+
+    while (t < smellFadeOutTime)
+    {
+        t += Time.deltaTime;
+        float alpha = Mathf.Lerp(1f, 0f, t / smellFadeOutTime);
+        smellSprite3.color = new Color(c.r, c.g, c.b, alpha);
+        yield return null;
+    }
+
+    smellSprite3.gameObject.SetActive(false);
+    smellSprite3.color = new Color(c.r, c.g, c.b, 1f);
+
+    isSmellPlaying = false;
+}
+
+IEnumerator PlaySmellTintEffect()
+{
+    if (farmerTintSprites == null || farmerTintSprites.Length == 0)
+        yield break;
+
+    float t = 0f;
+
+    while (t < smellTintFadeTime)
+    {
+        t += Time.deltaTime;
+
+        float lerp = t / smellTintFadeTime;
+
+        for (int i = 0; i < farmerTintSprites.Length; i++)
+        {
+            Color original = farmerOriginalColors[i];
+            original.a = 1f;
+
+            Color tinted = smellTintColor;
+            tinted.a = 1f;
+
+            Color result = Color.Lerp(original, tinted, lerp);
+            result.a = 1f; // 🔥 FORCE VISIBILITY ALWAYS
+
+            farmerTintSprites[i].color = result;
+        }
+
+        yield return null;
+    }
+
+    yield return new WaitForSeconds(0.3f);
+
+    t = 0f;
+
+    while (t < smellTintFadeTime)
+    {
+        t += Time.deltaTime;
+
+        float lerp = t / smellTintFadeTime;
+
+        for (int i = 0; i < farmerTintSprites.Length; i++)
+        {
+            Color original = farmerOriginalColors[i];
+            original.a = 1f;
+
+            Color tinted = smellTintColor;
+            tinted.a = 1f;
+
+            Color result = Color.Lerp(tinted, original, lerp);
+            result.a = 1f; // 🔥 NEVER LET IT FADE OUT
+
+            farmerTintSprites[i].color = result;
+        }
+
+        yield return null;
+    }
+
+    // FINAL HARD RESET
+    for (int i = 0; i < farmerTintSprites.Length; i++)
+    {
+        Color c = farmerOriginalColors[i];
+        c.a = 1f;
+        farmerTintSprites[i].color = c;
+    }
+}
 }

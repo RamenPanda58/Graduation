@@ -599,10 +599,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonObject: {fileID: 0}
   endDayButtonObject: {fileID: 0}
-  tutorialUI: {fileID: 0}
-  tutorialButtonObject: {fileID: 0}
-  exitButton: {fileID: 0}
-  tutorialButtonCanvasGroup: {fileID: 0}
+  mainArt: {fileID: 0}
+  topLeftPanel: {fileID: 0}
+  topRightPanel: {fileID: 0}
+  bottomLeftPanel: {fileID: 0}
+  bottomRightPanel: {fileID: 0}
+  timeWaitAnimation: 3
+  introBackground: {fileID: 0}
+  introTextObject: {fileID: 0}
+  narrationAudio: {fileID: 0}
 --- !u!4 &453671719
 Transform:
   m_ObjectHideFlags: 0
@@ -618,6 +623,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &533962041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6891381735832304208, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1748434822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539005844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1818,11 @@ Transform:
   - {fileID: 729695496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1592392153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8478898941362165345, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1748434822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1748434822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1824,6 +1839,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAnimationPrep_Farmer
       objectReference: {fileID: 0}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1592392153}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 533962041}
     - target: {fileID: 4142378666535123338, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5324

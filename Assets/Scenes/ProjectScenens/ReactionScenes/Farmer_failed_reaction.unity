@@ -1337,6 +1337,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &586486787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8478898941362165345, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1717191529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &610067171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1814,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762569460}
   m_CullTransparentMesh: 1
+--- !u!1 &790928388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6891381735832304208, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+  m_PrefabInstance: {fileID: 1717191529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &898790413
 GameObject:
   m_ObjectHideFlags: 0
@@ -4392,6 +4402,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 102
       objectReference: {fileID: 0}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: startingExpression
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 586486787}
+    - target: {fileID: 3280248359918997290, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 790928388}
     - target: {fileID: 3968331273040744362, guid: 4c6e68dff49840540a1f9a33f8fe1279, type: 3}
       propertyPath: m_SortingOrder
       value: 107

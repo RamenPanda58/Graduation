@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class ExpressionSwitcher : MonoBehaviour
 {
+    public enum Expression
+    {
+        Neutral,
+        Happy,
+        Sad,
+        Angry
+    }
+
     [SerializeField] private GameObject[] expressions;
+    [SerializeField] private Expression startingExpression = Expression.Neutral;
 
     private int currentExpression = -1;
 
@@ -30,11 +39,7 @@ public class ExpressionSwitcher : MonoBehaviour
 
     private void Start()
     {
-        // Optional: activate first expression by default
-        if (expressions.Length > 0)
-        {
-            SetExpression(0);
-        }
+        SetExpression((int)startingExpression);
     }
 
     private void Update()

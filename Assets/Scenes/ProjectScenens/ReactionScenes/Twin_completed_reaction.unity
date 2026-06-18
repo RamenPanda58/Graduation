@@ -439,6 +439,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1888650042}
   m_SourcePrefab: {fileID: 100100000, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+--- !u!1 &126254658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7797982369444414722, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202978099
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +807,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &255837027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3112704274294898786, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319514170
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2219,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 8eb0bd760b2abc54db482dc77c831839, type: 3}
+--- !u!1 &997322417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2230300753713750321, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+  m_PrefabInstance: {fileID: 1865132035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1039317065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4992,6 +5007,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAnimationPrep_Twin3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: startingExpression
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 255837027}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 997322417}
+    - target: {fileID: 8843403879177906431, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
+      propertyPath: 'expressions.Array.data[3]'
+      value: 
+      objectReference: {fileID: 126254658}
     - target: {fileID: 9062000608667800442, guid: c321ee91c13db1844a102eaf0f201db5, type: 3}
       propertyPath: m_SortingOrder
       value: 105

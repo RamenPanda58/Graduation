@@ -211,6 +211,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 512623983}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 599ca7a661b917f4d8868947f0237b82, type: 3}
+--- !u!1 &12704534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 140283823633544638, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+  m_PrefabInstance: {fileID: 90279848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &30235635
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +435,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1424750966}
     m_Modifications:
+    - target: {fileID: 2451339486405799177, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3723106238083338612, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.10138956
@@ -437,6 +446,10 @@ PrefabInstance:
     - target: {fileID: 3723106238083338612, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.9948468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849007397841153141, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5142725949896215787, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -506,6 +519,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAnimationPrep_Sailor2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7265048895798532580, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: startingExpression
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265048895798532580, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: 'expressions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 12704534}
+    - target: {fileID: 7265048895798532580, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: 'expressions.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1651437818}
     - target: {fileID: 7621931957620858938, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
@@ -4218,6 +4243,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1616559062}
   m_SourcePrefab: {fileID: 100100000, guid: be00b9c2bc71cef44b1b6807659d205c, type: 3}
+--- !u!1 &1651437818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8975556197422856923, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+  m_PrefabInstance: {fileID: 90279848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706417981
 GameObject:
   m_ObjectHideFlags: 0
