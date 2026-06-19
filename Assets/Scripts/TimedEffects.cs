@@ -584,17 +584,14 @@ IEnumerator PlaySmellEvent()
 {
     isSmellPlaying = true;
 
-    // CHARACTER ANIMATION
     if (sailorAnimator != null && sailorSmellReactionClip != null)
         sailorAnimator.CrossFade(sailorSmellReactionClip.name, animationBlendTime);
 
     if (farmerAnimator != null && farmerSmellReactionClip != null)
         farmerAnimator.CrossFade(farmerSmellReactionClip.name, animationBlendTime);
 
-    // 🍃 FOOD SMELL TINT EFFECT
     StartCoroutine(PlaySmellTintEffect());
 
-    // SPRITE SEQUENCE (your existing code)
     smellSprite1.gameObject.SetActive(true);
     smellSprite2.gameObject.SetActive(false);
     smellSprite3.gameObject.SetActive(false);
@@ -609,7 +606,6 @@ IEnumerator PlaySmellEvent()
     smellSprite2.gameObject.SetActive(false);
     smellSprite3.gameObject.SetActive(true);
 
-    // fade out
     Color c = smellSprite3.color;
     float t = 0f;
 
@@ -623,6 +619,13 @@ IEnumerator PlaySmellEvent()
 
     smellSprite3.gameObject.SetActive(false);
     smellSprite3.color = new Color(c.r, c.g, c.b, 1f);
+
+    // Return both characters to idle
+    if (sailorAnimator != null && idleClip != null)
+        sailorAnimator.CrossFade(idleClip.name, animationBlendTime);
+
+    if (farmerAnimator != null && farmerIdleClip != null)
+        farmerAnimator.CrossFade(farmerIdleClip.name, animationBlendTime);
 
     isSmellPlaying = false;
 }

@@ -3744,7 +3744,7 @@ MonoBehaviour:
   smellFadeOutTime: 1.5
   sailorSmellReactionClip: {fileID: 7400000, guid: 4fc9bca1b46a6364a9f96181400e73a3, type: 2}
   farmerSmellReactionClip: {fileID: 7400000, guid: 6dc681abc8377d84a8d840d824ff26de, type: 2}
-  ghostEventInterval: 35
+  ghostEventInterval: 40
   reactionBeforeGhostEnds: 33
   ghostAnimator: {fileID: 1781473000}
   ghostFloatClip: {fileID: 7400000, guid: afd992a8834bc4f48856027f5db0f7f6, type: 2}
