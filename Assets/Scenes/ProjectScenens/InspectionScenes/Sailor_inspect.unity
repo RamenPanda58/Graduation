@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationBlendTime: 0.25
-  smellInterval: 8
+  smellInterval: 5
   smellSprite1: {fileID: 691626730}
   smellSprite2: {fileID: 550047804}
   smellSprite3: {fileID: 81083621}
