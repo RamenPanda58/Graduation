@@ -744,7 +744,7 @@ MonoBehaviour:
   farmerSmellReactionClip: {fileID: 7400000, guid: 6dc681abc8377d84a8d840d824ff26de, type: 2}
   farmerShamisenReactionClip: {fileID: 7400000, guid: 7f68f248adb15724a89735a11d91dad7, type: 2}
   animationBlendTime: 0.25
-  smellInterval: 20
+  smellInterval: 4
   smellSprite1: {fileID: 628299188}
   smellSprite2: {fileID: 1577747601}
   smellSprite3: {fileID: 276160546}
@@ -756,7 +756,7 @@ MonoBehaviour:
   shamisenAudioSource: {fileID: 1677863035}
   isSmellReacting: 0
   isShamisenReacting: 0
-  shamisenInterval: 4
+  shamisenInterval: 8
 --- !u!4 &527397753
 Transform:
   m_ObjectHideFlags: 0

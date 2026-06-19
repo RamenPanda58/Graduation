@@ -109,7 +109,7 @@ public float shamisenInterval = 20f;
 
     IEnumerator SmellRoutine()
     {
-        if (isSmellReacting)
+        if (isSmellReacting || isShamisenReacting)
             yield break;
 
         isSmellReacting = true;
@@ -121,20 +121,6 @@ public float shamisenInterval = 20f;
 
         StartCoroutine(PlaySmellTintEffect());
         yield return StartCoroutine(SmellSpritesRoutine());
-
-        var ctrl = farmerAnimator.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
-        #if UNITY_EDITOR
-        foreach (var l in ctrl.layers)
-        {
-            foreach (var s in l.stateMachine.states)
-                Debug.Log($"REAL STATE (top): '{s.state.name}'");
-
-            foreach (var sub in l.stateMachine.stateMachines)
-                foreach (var s in sub.stateMachine.states)
-                    Debug.Log($"REAL STATE (sub '{sub.stateMachine.name}'): '{s.state.name}'");
-        }
-        #endif
-        Debug.Log($"idleClip.name = '{idleClip.name}'");
 
         if (farmerAnimator != null && idleClip != null)
         {
