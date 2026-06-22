@@ -23,6 +23,9 @@ public class ActionButtons : MonoBehaviour
     public GameObject bottomLeftPanel;
     public GameObject bottomRightPanel;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+
     [Header("Timing")]
     public float panelDelay = 1f;
     public float mainArtVisibleTime = 3f;
@@ -61,30 +64,36 @@ public class ActionButtons : MonoBehaviour
 
     private IEnumerator PlayTransitionAndLoad(string sceneName)
     {
+        // Start audio when the animation starts
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         // Show transition elements
-        mainArt.SetActive(true);
-        topLeftPanel.SetActive(true);
-        topRightPanel.SetActive(true);
-        bottomLeftPanel.SetActive(true);
-        bottomRightPanel.SetActive(true);
+        if (mainArt != null) mainArt.SetActive(true);
+        if (topLeftPanel != null) topLeftPanel.SetActive(true);
+        if (topRightPanel != null) topRightPanel.SetActive(true);
+        if (bottomLeftPanel != null) bottomLeftPanel.SetActive(true);
+        if (bottomRightPanel != null) bottomRightPanel.SetActive(true);
 
         // Reveal artwork one panel at a time
         yield return new WaitForSeconds(panelDelay);
-        topLeftPanel.SetActive(false);
+        if (topLeftPanel != null) topLeftPanel.SetActive(false);
 
         yield return new WaitForSeconds(panelDelay);
-        topRightPanel.SetActive(false);
+        if (topRightPanel != null) topRightPanel.SetActive(false);
 
         yield return new WaitForSeconds(panelDelay);
-        bottomLeftPanel.SetActive(false);
+        if (bottomLeftPanel != null) bottomLeftPanel.SetActive(false);
 
         yield return new WaitForSeconds(panelDelay);
-        bottomRightPanel.SetActive(false);
+        if (bottomRightPanel != null) bottomRightPanel.SetActive(false);
 
         // Keep the artwork visible
         yield return new WaitForSeconds(mainArtVisibleTime);
 
-        // Load the next scene immediately
+        // Load the next scene
         SceneManager.LoadScene(sceneName);
     }
 }
