@@ -306,6 +306,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1424750966}
     m_Modifications:
+    - target: {fileID: 1004344314854861234, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176943939648303117, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 209
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185011531346874507, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 206
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346377566078586865, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744967517194081452, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451339486405799177, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 205
+      objectReference: {fileID: 0}
     - target: {fileID: 3723106238083338612, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.10138956
@@ -313,6 +337,18 @@ PrefabInstance:
     - target: {fileID: 3723106238083338612, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.9948468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335830831721933942, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4621630791451096465, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 202
+      objectReference: {fileID: 0}
+    - target: {fileID: 4849007397841153141, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 204
       objectReference: {fileID: 0}
     - target: {fileID: 5142725949896215787, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -374,6 +410,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5744018215342447874, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 208
+      objectReference: {fileID: 0}
     - target: {fileID: 5899234413999142125, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.00000026822087
@@ -382,9 +422,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterAnimationPrep_Sailor2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7174894742876345016, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 203
+      objectReference: {fileID: 0}
     - target: {fileID: 7621931957620858938, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821346431522337803, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326717747581884449, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 215
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134726017653054100, guid: 8c8f5367b39480b4cb089af28e785b2e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 211
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3736,7 +3792,7 @@ MonoBehaviour:
   farmerTintRoot: {fileID: 412577814}
   smellTintColor: {r: 0.4892804, g: 0.899371, b: 0.4892804, a: 1}
   smellTintFadeTime: 0.7
-  smellInterval: 30
+  smellInterval: 15
   smellSprite1: {fileID: 1239284247}
   smellSprite2: {fileID: 1227023234}
   smellSprite3: {fileID: 51194918}
@@ -3744,7 +3800,7 @@ MonoBehaviour:
   smellFadeOutTime: 1.5
   sailorSmellReactionClip: {fileID: 7400000, guid: 4fc9bca1b46a6364a9f96181400e73a3, type: 2}
   farmerSmellReactionClip: {fileID: 7400000, guid: 6dc681abc8377d84a8d840d824ff26de, type: 2}
-  ghostEventInterval: 40
+  ghostEventInterval: 10
   reactionBeforeGhostEnds: 33
   ghostAnimator: {fileID: 1781473000}
   ghostFloatClip: {fileID: 7400000, guid: afd992a8834bc4f48856027f5db0f7f6, type: 2}
@@ -3762,7 +3818,7 @@ MonoBehaviour:
   maxPitch: 1.1
   doorChimeAudio: {fileID: 771278420}
   firstChimeDelay: 0.5
-  chimeInterval: 39
+  chimeInterval: 9
   twinReactionDelay: 1
   twinAnimator: {fileID: 2046297048}
   twinReactionClip: {fileID: 7400000, guid: 4070eaf7ea9da9e4284e2aafdf6c11fc, type: 2}
@@ -3775,7 +3831,7 @@ MonoBehaviour:
   sighMinInterval: 15
   sighMaxInterval: 40
   shamisenAudio: {fileID: 2023442665}
-  shamisenInterval: 45
+  shamisenInterval: 12
   farmerAnimator: {fileID: 412577818}
   farmerReactionClip: {fileID: 7400000, guid: 7f68f248adb15724a89735a11d91dad7, type: 2}
   farmerIdleClip: {fileID: 7400000, guid: ba84073cabbd4944193fe4fb86f0eeee, type: 2}

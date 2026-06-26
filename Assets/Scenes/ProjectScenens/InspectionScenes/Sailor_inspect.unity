@@ -391,7 +391,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5004f20c7a730d34599baf91f15a6c25, type: 3}
   m_Resource: {fileID: 8300000, guid: 5004f20c7a730d34599baf91f15a6c25, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.254
+  m_Volume: 0.462
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   sailorSmellReactionClip: {fileID: 7400000, guid: 4fc9bca1b46a6364a9f96181400e73a3, type: 2}
   idleClip: {fileID: 7400000, guid: 5c58302f8f723034da5e9a39265e55b1, type: 2}
   stomachAudioSource: {fileID: 132379816}
-  stomachDelay: 1.5
+  stomachDelay: 0.4
   randomizeStomachPitch: 1
   minStomachPitch: 0.95
   maxStomachPitch: 1.05

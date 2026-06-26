@@ -2133,7 +2133,7 @@ MonoBehaviour:
   animationBlendTime: 0.25
   doorChimeAudio: {fileID: 370513996}
   firstChimeDelay: 0.5
-  chimeInterval: 15
+  chimeInterval: 5
   twinReactionDelay: 0
   twinAnimator: {fileID: 2022824854}
   twinReactionClip: {fileID: 7400000, guid: 4070eaf7ea9da9e4284e2aafdf6c11fc, type: 2}
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   sprite1: {fileID: 1267920347}
   sprite2: {fileID: 656797787}
   sprite3: {fileID: 1379540738}
-  playEverySeconds: 5
+  playEverySeconds: 8
   spriteDuration: 0.2
   fadeDuration: 1
 --- !u!4 &1952829963
